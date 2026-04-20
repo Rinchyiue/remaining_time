@@ -21,3 +21,13 @@ PM4PY       - Loading of the .xes file in a more processable manner, providing t
               along with further functionalities that support the prediction process.
 Pandas      - Visualization of data and formatting for .csv inputs. 
 PYtorch     - Machine Learning & Deep Learning Framework.
+
+#Orga
+  - regular weekly meeting:
+        Sun. 19:30 - 20:30
+
+#(temp)Dashboard
+  - Read through docu of PM4PY                concerned: ALL              deadline: Apr. 27
+  - Read through docu assigned                concerned: ALL              deadline: Apr. 26
+  - Learn the theory behind prediction        concerned: Linas & Qifan    deadline: Apr. 26 (till the meeting)
+  - Learn the software project architecture   concerned: Sarp             deadline: Apr. 26 (till the meeting)
