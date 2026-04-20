@@ -17,6 +17,7 @@ Qifan Wu     - Project coordinator
 PS: All of us are responsible for the documentation and reporting.
 
 #Approaches:
-PM4PY
-Pandas
-PYtorch
+PM4PY       - Loading of the .xes file in a more processable manner, providing test cases for development and testing, 
+              along with further functionalities that support the prediction process.
+Pandas      - Visualization of data and formatting for .csv inputs. 
+PYtorch     - Machine Learning & Deep Learning Framework.
