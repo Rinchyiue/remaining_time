@@ -1,33 +1,27 @@
 # remaining_time
 
-#Intro:
-This is a project for a solution to predict the remaining time of a process from the fed event logs. 
-The main value of this project is __________ .
+**#Intro**
+This is a project for a solution to predict the remaining time of a process from the fed event logs. <br>
+The main value of this project is __________ . <br>
 
-#The Team:
-Linas Butkus
-Sarp Aydoslu
-Qifan Wu
+**#The Team**
+Linas   Butkus  <br>
+Sarp    Aydoslu <br>
+Qifan   Wu      <br>
 
-#Current Roles:
-Linas Butkus - Data & preprocessing lead, Modelling & experimentation lead
-Sarp Aydoslu - Evaluation & visualization lead, Quality & tooling (tests, CI)
-Qifan Wu     - Project coordinator
+**#Current Roles** <br>
+Linas Butkus - Data & preprocessing lead, Modelling & experimentation lead <br>
+Sarp Aydoslu - Evaluation & visualization lead, Quality & tooling (tests, CI) <br>
+Qifan Wu     - Project coordinator <br>
+<br>
+PS: All of us are responsible for the documentation and reporting. <br>
 
-PS: All of us are responsible for the documentation and reporting.
+**#Approaches** <br>
+PM4PY       - Loading of the .xes file in a more processable manner, providing test cases for development and testing, <br>
+              along with further functionalities that support the prediction process. <br>
+Pandas      - Visualization of data and formatting for .csv inputs. <br>
+PYtorch     - Machine Learning & Deep Learning Framework. <br>
 
-#Approaches:
-PM4PY       - Loading of the .xes file in a more processable manner, providing test cases for development and testing, 
-              along with further functionalities that support the prediction process.
-Pandas      - Visualization of data and formatting for .csv inputs. 
-PYtorch     - Machine Learning & Deep Learning Framework.
-
-#Orga
-  - regular weekly meeting:
+**#Orga**
+  - regular weekly meeting: <br>
         Sun. 19:30 - 20:30
-
-#(temp)Dashboard
-  - Read through docu of PM4PY                concerned: ALL              deadline: Apr. 27
-  - Read through docu assigned                concerned: ALL              deadline: Apr. 26
-  - Learn the theory behind prediction        concerned: Linas & Qifan    deadline: Apr. 26 (till the meeting)
-  - Learn the software project architecture   concerned: Sarp             deadline: Apr. 26 (till the meeting)
