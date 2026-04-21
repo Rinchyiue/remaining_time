@@ -1,10 +1,7 @@
 # remaining_time
 
 **#Intro**
-This is a project for a solution to predict the remaining time of a process from the fed event logs. <br>
-The main value of this project is __________ . <br>
-
-Linas version: A predictive process mining solution that estimates the remaining time of running incidents from event logs. The main value is providing IT helpdesks with early warnings for long-running tickets, enabling proactive resource management and better service delivery.
+A predictive process mining solution that estimates the remaining time of running incidents from event logs. The main value is providing IT helpdesks with early warnings for long-running tickets, enabling proactive resource management and better service delivery. (Linas)
 
 **#The Team** <br>
 Linas   Butkus  <br>
