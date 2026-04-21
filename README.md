@@ -14,13 +14,13 @@ Qifan   Wu      <br>
 **#Current Roles** <br>
 Linas Butkus&nbsp;&nbsp;- Data & preprocessing lead, Modelling & experimentation lead <br>
 Sarp Aydoslu&nbsp;- Evaluation & visualization lead, Quality & tooling (tests, CI) <br>
-Qifan Wu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Project coordinator <br>
+Qifan Wu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Project coordinator <br>
 <br>
 PS: All of us are responsible for the documentation and reporting. <br>
 
 **#Approaches** <br>
 PM4PY&nbsp;&nbsp;&nbsp;- Loading of the .xes file in a more processable manner, providing test cases for development and testing, <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;along with further functionalities that support the prediction process. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;along with further functionalities that support the prediction process. <br>
 Pandas&nbsp;&nbsp;- Visualization of data and formatting for .csv inputs. <br>
 PYtorch&nbsp;- Machine Learning & Deep Learning Framework. <br>
 
