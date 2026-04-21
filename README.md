@@ -12,18 +12,18 @@ Sarp    Aydoslu <br>
 Qifan   Wu      <br>
 
 **#Current Roles** <br>
-Linas Butkus  - Data & preprocessing lead, Modelling & experimentation lead <br>
-Sarp Aydoslu  - Evaluation & visualization lead, Quality & tooling (tests, CI) <br>
-Qifan Wu&nbsp;- Project coordinator <br>
+Linas Butkus&nbsp;&nbsp;- Data & preprocessing lead, Modelling & experimentation lead <br>
+Sarp Aydoslu&nbsp;&nbsp;- Evaluation & visualization lead, Quality & tooling (tests, CI) <br>
+Qifan Wu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Project coordinator <br>
 <br>
 PS: All of us are responsible for the documentation and reporting. <br>
 
 **#Approaches** <br>
-PM4PY  &nbsp;&nbsp;- Loading of the .xes file in a more processable manner, providing test cases for development and testing, <br>
- &nbsp;&nbsp;&nbsp;along with further functionalities that support the prediction process. <br>
-Pandas &nbsp;&nbsp;- Visualization of data and formatting for .csv inputs. <br>
-PYtorch&nbsp;&nbsp;- Machine Learning & Deep Learning Framework. <br>
+PM4PY&nbsp;&nbsp;&nbsp;- Loading of the .xes file in a more processable manner, providing test cases for development and testing, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;along with further functionalities that support the prediction process. <br>
+Pandas&nbsp;&nbsp;- Visualization of data and formatting for .csv inputs. <br>
+PYtorch&nbsp;- Machine Learning & Deep Learning Framework. <br>
 
 **#Orga**
-  - regular weekly meeting: <br>
-        Sun. 19:30 - 20:30
+&nbsp;&nbsp;- regular weekly meeting: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sun. 19:30 - 20:30
