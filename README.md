@@ -16,9 +16,9 @@ Qifan Wu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Project Coordinator, Technic
 PS: All of us are responsible for the documentation and reporting. <br>
 
 **#Peer Review** <br>
-Linas Butkus&nbsp;&nbsp;-> Sarp Aydoslu
-Sarp Aydoslu&nbsp;-> Qifan Wu
-Qifan Wu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> Linas Butkus
+Linas Butkus&nbsp;&nbsp;-> Sarp Aydoslu <br>
+Sarp Aydoslu&nbsp;-> Qifan Wu <br>
+Qifan Wu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> Linas Butkus <br>
 
 **#Approaches** <br>
 Trello: To manage tasks and track project progress, we use Trello with a Kanban-style.
