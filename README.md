@@ -1,7 +1,7 @@
 # remaining_time
 
 **#Intro**
-A predictive process mining solution that estimates the remaining time of running incidents from event logs. The main value is providing IT helpdesks with early warnings for long-running tickets, enabling proactive resource management and better service delivery. (Linas)
+A predictive process mining solution that estimates the remaining time of running incidents from event logs. The main value is providing IT helpdesks with early warnings for long-running tickets, enabling proactive resource management and better service delivery.
 
 **#The Team** <br>
 Linas   Butkus  <br>
