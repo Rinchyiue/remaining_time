@@ -1,4 +1,4 @@
-This is the requirement engineering file. <br>
+This is the requirement engineering file.  
 
 Please follow a consistent standard format when you add anything here.  
 Please provide a UID for each requirement discovered.  
