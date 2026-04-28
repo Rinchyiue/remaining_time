@@ -5,17 +5,26 @@ Please provide a UID for each requirement discovered.
 Please synchronize such requirements in Trello.  
 Please regularly update the traceability matric beside version control.  
 
-# Functional Requirements Specification
+Ps: For sake of unitiy of notation, which contributes to better identification and management  
+of all requirements (or constraints), constraints will also follow the format given for a  
+requirement, continuing the numeric sequence of ID.
 
+# Stakeholders
+The advisor: Alessandro Berti  
+Potential (end-)users: IT helpdesk/service desk workers, e.g. incident manager/commander,  
+business executives, customer support team, or even clients.
+
+# Requirements
+## Data and Preprocessing
 **ID:** REQ-01  
 **Type:**  
 **Text:**
 
-# Non-Functional Requirements Specification
+## Modelling and Evaluation
 
-**ID:** REQ-xx  
-**Type:**  
-**Text:**
+## Infrastructure and Tooling
+
+## Reporting and Explainability
 
 # Functional Model
 
