@@ -67,11 +67,13 @@ Expectation:
 further activities or decide whether to continue the process.  
 
 # Definition of the Success Metrices
-There are certain factors that are considered important for evaluation:   
-reproducability, robustness, maintainability, explainability, basic functionality, fine documentation, accuracy,  
-and earliness.  
+## Summary
+There are certain factors that are considered important for evaluation in this project:   
+reproducability, robustness, maintainability, fine documentation, explainability, basic functionality, accuracy, and earliness.  
 
+## Content
 They are respectively defined as follows:  
+
 **reproducability:**  
 The experiments done during the development should be capable of  
 - being reproduced from the code and training files/data sets
@@ -84,19 +86,25 @@ The code should be capable of passing all designed tests.
 The code should be easy to maintain, which encourages the project to be split in more modules (or submodules)  
 where the implementation should be as simple as possible.  
 
-**explainabililty:** 
-Explainability is fulfilled if and only if all of the following statements are fulfilled:  
+**fine documentation:**  
+Basic functionality is fulfilled if and only if all of the following statements are fulfilled: 
 - A short description pf the project and its goal is provided;
 - Description of the datasets used, with source and basic statics, is provided;
 - Setup instructions are provided, e.g. Python version and how to install dependencies;
-- The code (i.e. prototype predictor) and tests should be run by anyone merely depending on the provided documentation. 
+- The code-level documentations have meaningful function and class names;  
+- Description in docstrings of purpose, input and output of important functions is provided;
+- Explanation of non-trivial logic is provided. 
+
+**explainabililty:** 
+Explainability is fulfilled if and only if all of the following statements are fulfilled:  
+- Fine documentation is fulfilled;
+- The code (i.e. prototype predictor) and tests should be run by anyone merely depending on the provided documentation.
+- An architecture overview is provided.
 
 **basic functionality:**   
 Basic functionality is fulfilled if and only if all of the following statements are fulfilled:  
 - The code (i.d. prototype predictor) should be capable of being performed on new data;
-- The code 
-
-**fine documentation:**  
+- The code  
 
 **accuracy:**  
 
