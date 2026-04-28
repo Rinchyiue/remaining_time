@@ -121,12 +121,73 @@ i.e. the main algorithm should stay in an asympotic class which is at best linea
 
 **ID:** REQ-02  
 **Type:** Functional  
-**Text:** The system shall identify and expose the essential columns: case identifier, activity name, timestamp, and relevant case attributes (e.g. priority, customer, incident type).
+**Text:** The system shall extract and validate the presence of the essential columns within the loaded log, including case identifier, activity name, timestamp, and relevant case attributes (e.g. priority, customer, incident type).
+
+**ID:** REQ-03  
+**Type:** Functional  
+**Text:** The system shall ensure that events within each case are sorted by timestamp.
+
+**ID:** REQ-04  
+**Type:** Functional  
+**Text:** The system shall compute the remaining time for each prefix of each case, defined as the difference between the completion timestamp and the timestamp of the last event in the prefix, expressed in a consistent unit.
+
+**ID:** REQ-05  
+**Type:** Functional  
+**Text:** The system shall implement a logic to either keep or filter out prefixes that are "too short" (e.g., still in an initial trivial state).
+
+**ID:** REQ-06  
+**Type:** Functional  
+**Text:** The system shall build a prefix-level supervised dataset where each row represents one prefix of one case, containing a feature vector and the corresponding remaining time label.
+
+**ID:** REQ-07  
+**Type:** Functional  
+**Text:** The system shall split the dataset into training, validation, and test sets using a time-based split (e.g. first 70% of cases by start time for training, next 15% for validation, last 15% for test).
+
+**ID:** REQ-08  
+**Type:** Functional  
+**Text:** The system shall encode static case attributes (e.g. priority, customer type at creation time) as features.
+
+**ID:** REQ-09  
+**Type:** Functional  
+**Text:** The system shall encode aggregated dynamic features per prefix, including the number of events so far, elapsed time since case start and activity occurrence counts.
+
+**ID:** REQ-10  
+**Type:** Functional  
+**Text:** The system shall encode temporal features of the last event in the prefix: day of week and hour of day (e.g. as one-hot or cyclical encoding).
+
+**ID:** REQ-11  
+**Type:** Functional  
+**Text:** The system shall apply one-hot encoding of categorical features and scaling or normalization of numeric features as required by the chosen models.
 
 ## Modelling and Evaluation
-**ID:** REQ-xx  
-**Type:**  
-**Text:**
+**ID:** REQ-12   
+**Type:** Functional  
+**Text:** The system shall implement a naive baseline predictor for remaining time (e.g. always predicting the mean remaining time of training prefixes, or the mean remaining time conditional on the current activity).
+
+**ID:** REQ-13   
+**Type:** Functional  
+**Text:** The system shall implement at least two supervised regression models (e.g. Linear/Ridge Regression and a tree-based model such as RandomForestRegressor or GradientBoostingRegressor).
+
+**ID:** REQ-14   
+**Type:** Functional  
+**Text:** The system shall train all models on the training set and use the validation set to select hyperparameters.
+
+**ID:** REQ-15   
+**Type:** Functional  
+**Text:** The system shall provide the functionality to evaluate different hyperparameter configurations on the validation set, either via a simple grid search or manual search.
+
+**ID:** REQ-16   
+**Type:** Functional  
+**Text:** The system shall provide the functionality to retrain the selected best model configuration on the combined training and validation set.
+
+**ID:** REQ-17   
+**Type:** Functional  
+**Text:** The system shall evaluate all models on the test set and report at least the Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE).
+
+**ID:** REQ-18   
+**Type:** Functional  
+**Text:** The system shall evaluate model performance separately across multiple prefix lengths, specifically early, mid, and late prefixes.
+
 
 ## Infrastructure and Tooling
 **ID:** REQ-xx  
@@ -134,9 +195,17 @@ i.e. the main algorithm should stay in an asympotic class which is at best linea
 **Text:**
 
 ## Reporting and Explainability
-**ID:** REQ-xx  
-**Type:**  
-**Text:**
+**ID:** REQ-19   
+**Type:** Functional  
+**Text:** The system shall generate a comparison table of all models (baseline and ML models) on test data.
+
+**ID:** REQ-20   
+**Type:** Functional  
+**Text:** The system shall generate at least two plots visualizing model performance, for example: MAE/RMSE vs. prefix length, distribution of prediction errors, or a scatter plot of predicted vs. actual remaining time.
+
+**ID:** REQ-21  
+**Type:** Functional  
+**Text:** The system shall provide a prototype script or notebook that accepts new data and prints the predicted remaining time for active cases.
 
 # Module Responsibility  
 Sarp: REQ-xx, REQ-xx, ...  
