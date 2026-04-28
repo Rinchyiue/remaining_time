@@ -116,8 +116,12 @@ i.e. the main algorithm should stay in an asympotic class which is at best linea
 # Requirements
 ## Data and Preprocessing
 **ID:** REQ-01  
-**Type:**  
-**Text:**
+**Type:** Functional  
+**Text:** The system shall load the incident management event log using PM4Py or pandas.
+
+**ID:** REQ-02  
+**Type:** Functional  
+**Text:** The system shall identify and expose the essential columns: case identifier, activity name, timestamp, and relevant case attributes (e.g. priority, customer, incident type).
 
 ## Modelling and Evaluation
 **ID:** REQ-xx  
@@ -135,9 +139,9 @@ i.e. the main algorithm should stay in an asympotic class which is at best linea
 **Text:**
 
 # Module Responsibility  
-Sarp: REQ-xx, REQ-xx, ...
-Linas: 
-Qifan: 
+Sarp: REQ-xx, REQ-xx, ...  
+Linas:  
+Qifan:  
 
 # Functional Model
 
