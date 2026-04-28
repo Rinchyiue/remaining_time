@@ -1,26 +1,26 @@
 # remaining_time
 
-**#Intro**
+# Intro
 A predictive process mining solution that estimates the remaining time of running incidents from event logs. The main value is providing IT helpdesks with early warnings for long-running tickets, enabling proactive resource management and better service delivery.
 
-**#The Team**  
+# The Team  
 Linas   Butkus  
 Sarp    Aydoslu  
 Qifan   Wu      
 
-**#Current Roles**  
+# Current Roles  
 Linas Butkus&nbsp;&nbsp;-  Evaluation & Visualization Lead, Quality & Tooling (Tests, CI)  
 Sarp Aydoslu&nbsp;-  Data & Preprocessing Lead, Modelling & Experimentation Lead  
 Qifan Wu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Project Coordinator, Technical Lead  
   
 PS: All of us are responsible for the documentation and reporting.  
 
-**#Peer Review**  
+# Peer Review  
 Linas Butkus&nbsp;&nbsp;-> Sarp Aydoslu  
 Sarp Aydoslu&nbsp;-> Qifan Wu  
 Qifan Wu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> Linas Butkus  
 
-**#Approaches**  
+# Approaches  
 Trello: To manage tasks and track project progress, we use Trello with a Kanban-style.
 Tasks are organized into categories such as “Backlog”, “In Progress”, “In Review” and
 “Done”. This helps the team coordinate work, assign responsibilities, and monitor deadlines
@@ -70,6 +70,6 @@ distributions. And they allow for performance comparisons across different prefi
 These visualisations help us to see how well the models perform and spot any patterns or
 weaknesses in the predictions.  
 
-**#Orga**  
+# Orga  
 &nbsp;&nbsp;- regular weekly meeting:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sun. 19:30 - 20:30
