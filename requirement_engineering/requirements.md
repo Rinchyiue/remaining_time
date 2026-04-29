@@ -120,7 +120,7 @@ One of the most standard metrics for prediction accuracy, especially in the area
 analog to MAE, this property is not violated. Moreover, RMSE is sensitive to outliners, for each error is proportional to the size  
 of the squared error, thus large errors can have significant influence on the outcome.
 
-* : This definition is the regression variant.
+\* : This definition is the regression variant.
 
 **MedAE**  
 - Definition (Wikipedia):
