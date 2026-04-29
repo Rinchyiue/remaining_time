@@ -26,7 +26,8 @@ TO DO
 There are various (potential) stakeholders, and according to their professions and roles in the process  
 they can be further classified into four groups: academic, leader, clerk and client. Expectations can be  
 different given different points of view, but there are also some expectations in common, e.g. the software  
-should provide a clear and easily operable interface for common end-users.
+should provide a clear and easily operable interface for common end-users and alert to bottlenecks/violations  
+should be given in certain negative cases.
 
 ## Content
 The advisor: Alessandro Berti  
@@ -50,68 +51,133 @@ Expectation:
 - The output should be benefitial for decision making (e.g. whether adjustment should be appiled based on
 the expected duration).
 - In relationship to the clerk group, it can also be viewed as an indirect assessment on certain clerk's
-(or sequence of clerks') working efficiency. 
+(or sequence of clerks') working efficiency or indirectly resource utilization.  
+- In certain negative cases, alert to bottlenecks/violations should be given. In such cases, the output value
+should also support extimating potential losses. 
 
 **Clerk** 
 Example: customer support team  
 Expectation: 
 - The software has an interface where it is clear and easy to operate.  
 - The output should provide information for workload estimation, as well as other factors that might
-improve working efficiency.  
+improve working efficiency.
+- In certain negative cases, alert to bottlenecks/violations should be given.  
 
 **Customer**  
 Example: clients   
 Expectation: 
 - The software has an interface where it is clear and easy to operate.  
 - Information about expected remaining waiting time/processing time can also help customers plan
-further activities or decide whether to continue the process.  
+further activities or decide whether to continue the process.
+- In certain negative cases, alert to bottlenecks/violations should be given. In such cases, the output value  
+should also support extimating potential losses.  
 
-# Definition of the Success Metrices
+# Definition of the Success Metric
 ## Summary
-There are certain factors that are considered important for evaluation in this project:   
-reproducability, robustness, maintainability, fine documentation, explainability, basic functionality, accuracy, and earliness.  
+The dominating factor of the quantitative evalution of our project: accuracy based on prefix length  
+and model. 
 
 ## Content
-They are respectively defined as follows:  
+As for each model, an evaluation should be performed to detect accuracy of the prediction. In this project,  
+we select Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Median Absolute Error and R<sup>2</sup> Score  
+as indicators to accuracy. However, to ensure the comparability and finite scalablity, prefix length and model  
+should also be paired with the corresponding indicator value.  
 
-**reproducability:**  
-The experiments done during the development should be capable of  
-- being reproduced from the code and training files/data sets
-- coinciding all evaluation results documented in the project.  
+**MAE**  
+- Definition (Wikipedia):   
 
-**robustness:**  
-The code should be capable of passing all designed tests.  
+```math
+\mathrm{MAE} = \frac{1}{n}\sum_{i=1}^{n} |y_i - x_i|
+```
 
-**maintainability:**  
-The code should be easy to maintain, which encourages the project to be split in more modules (or submodules)  
-where the implementation should be as simple as possible.  
+where:
 
-**fine documentation:**  
-Basic functionality is fulfilled if and only if all of the following statements are fulfilled: 
-- A short description pf the project and its goal is provided;
-- Description of the datasets used, with source and basic statics, is provided;
-- Setup instructions are provided, e.g. Python version and how to install dependencies;
-- The code-level documentations have meaningful function and class names;  
-- Description in docstrings of purpose, input and output of important functions is provided;
-- Explanation of non-trivial logic is provided. 
+$y_i$ is the predicted value  
+$x_i$ is the actual value  
+$n$ is the number of observations
 
-**explainabililty:** 
-Explainability is fulfilled if and only if all of the following statements are fulfilled:  
-- Fine documentation is fulfilled;
-- The code (i.e. prototype predictor) and tests should be run by anyone merely depending on the provided documentation.
-- An architecture overview is provided.
+- Reason:  
+One of the most standard metrices for prediction accuracy, and an arithmetic mean simple to calculate.  Since the prediction cases
+with same model and prefix length are equally weighed, MAE's incapability in different data scales can be ignored in this context.
 
-**basic functionality:**   
-Basic functionality is fulfilled if and only if all of the following statements are fulfilled:  
-- The code (i.d. prototype predictor) should be capable of being performed on new data;
-- The code  
+**RMSE**  
+- Definition (Wikipedia)*:  
 
-**accuracy:**  
+```math
+\mathrm{RMSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - x_i)^2}
+```
+where:
 
-**earliness:**  
+$y_i$ is the predicted value  
+$x_i$ is the actual value  
+$n$ is the number of observations
 
-Beyond those success metrices defined above, the complexity of code should also be as little as possible,  
-i.e. the main algorithm should stay in an asympotic class which is at best linear or even constant.  
+- Reason:
+One of the most standard metrics for prediction accuracy, especially in the area machine learning. The indicator is scale-dependent,
+analog to MAE, this property is not violated. Moreover, RMSE is sensitive to outliners, for each error is proportional to the size  
+of the squared error, thus large errors can have significant influence on the outcome.
+
+* : This definition is the regression variant.
+
+**Median Absolute Error**  
+- Definition (Wikipedia):
+
+```math
+\mathrm{Medien Absolute Error} = \mathrm{median}(|y_i - x_i|)
+```
+
+where:
+
+$y_i$ is the predicted value  
+$x_i$ is the actual value  
+$|y_i - x_i|$ is the absolute error for observation $i$
+
+- Reason:
+Median Absolute Error often serves as a population parameter - population can be refered to the group of prediction values carried out from
+same background (i.e. a group of prediction cases). This might help discovering a probability distribution. In contrast to RMSE, Median Absolute
+Error is more resilient to outliners.
+
+**R<sup>2</sup> Score**  
+- Definition (Wikipedia):
+
+A data set has $n$ values $y_1, \ldots, y_n$ (collectively denoted $y_i$, or as a vector $y = [y_1, \ldots, y_n]^T$), each associated with a fitted  
+(or modeled, or predicted) value $f_1, \ldots, f_n$ (denoted $f_i$, or as a vector $f$).
+
+Define the residuals as:
+```math
+e_i = y_i - f_i
+```
+
+Let $\bar{y}$ be mean of the observed data:
+```math
+\bar{y} = \frac{1}{n}\sum_{i=1}^{n} y_i
+```
+
+- Residual Sum of Squares (SSres)
+
+```math
+SS_{res} = \sum_{i=1}^{n}(y_i - f_i)^2 = \sum_{i=1}^{n} e_i^2
+```
+
+- Total Sum of Squares (SStot)
+
+```math
+SS_{tot} = \sum_{i=1}^{n}(y_i - \bar{y})^2
+```
+
+- R<sup>2</sup> Score (Coefficient of Determination)
+
+```math
+R^2 = 1 - \frac{SS_{res}}{SS_{tot}}
+```
+
+- Reason:
+It can serve as a fitness indicator for our prediction procedure - if the value is negative, it implies that the procedure does not fit the model well.
+Moreover, since the desired (and usual) results always range in [0,1], it's more intuitive because of the existence of a counterpart representation in
+percentage.
+
+More precisely, the indicator represents the percentage of the variablity of the dependent variable in the data set has been account for; in our project,  
+the dependent variable is the prediction value. Therefore, it can be used for completeness check of variability coverage calculating the prediction value.
 
 # Requirements
 ## Data and Preprocessing
