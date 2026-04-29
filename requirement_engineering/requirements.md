@@ -380,6 +380,11 @@ log)
 **Text:** Work shall be done in small groups, while each group member will later write an individual report.  
 
 # Definition of Success
+The definition of success regarding this project should be viewed from two perspectives: qualitative and quantitative. They are both important components standing behind the project value. 
+
+## Qualitative Criteria
+
+## Quantitative Criteria
 
 # Module Responsibility  
 Sarp: REQ-xx, REQ-xx, ...  
