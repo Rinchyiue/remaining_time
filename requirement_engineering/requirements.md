@@ -383,6 +383,21 @@ log)
 The definition of success regarding this project should be viewed from two perspectives: qualitative and quantitative. They are both important components standing behind the project value. 
 
 ## Qualitative Criteria
+All of the listed requirements (and constraints) should be fulfilled - this serves as a baseline for our project. Ditto, we can also view them as an influential part of foundation of "success" in our project.  
+Beyond those, the execession* in number of concrete implementation / evaluation / explanantion elements than the ones described in requirements can also be viewed as a contributor to "success".  
+
+Moreover, considering the whole development process, success can also be defined from the more aspects, which are mainly:  
+
+- Milestone delivery punctuality
+- Credibility of used data / references
+- Academic integrity
+- Flexibility to adjustment
+- Team collaberation
+- Experience gained from the project
+
+In a nutshell, from the qualitative criteria listed, success in our project can be partially viewed as requirement fulfillment (excession) + experience and soft skills obtained from the project.  
+
+\* : Emphasis here is on the property of excession, rather than the concrete numeric value. 
 
 ## Quantitative Criteria
 
@@ -393,4 +408,4 @@ Qifan:
 
 # Functional Model
 
-**Traceability Matric**
+# Traceability Matric
