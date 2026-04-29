@@ -72,14 +72,17 @@ further activities or decide whether to continue the process.
 - In certain negative cases, alert to bottlenecks/violations should be given. In such cases, the output value  
 should also support extimating potential losses.  
 
-# Definition of the Success Metric
+# Metrices to be used
 ## Summary
 The dominating factor of the quantitative evalution of our project: accuracy based on prefix length  
-and model. 
+and model, which can be explained in four indicators: Mean Absolute Error (MAE), Root Mean Squared Error (RMSE),  
+Median Absolute Error (MedAE) and R<sup>2</sup> Score. 
+
+More interestingly, all of the indicators can be calculated thanking scikit, https://scikit-learn.org/stable/modules/model_evaluation.html. 
 
 ## Content
 As for each model, an evaluation should be performed to detect accuracy of the prediction. In this project,  
-we select Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Median Absolute Error and R<sup>2</sup> Score  
+we select Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Median Absolute Error (MedAE) and R<sup>2</sup> Score  
 as indicators to accuracy. However, to ensure the comparability and finite scalablity, prefix length and model  
 should also be paired with the corresponding indicator value.  
 
@@ -119,11 +122,11 @@ of the squared error, thus large errors can have significant influence on the ou
 
 * : This definition is the regression variant.
 
-**Median Absolute Error**  
+**MedAE**  
 - Definition (Wikipedia):
 
 ```math
-\mathrm{Medien Absolute Error} = \mathrm{median}(|y_i - x_i|)
+\mathrm{MedAE} = \mathrm{median}(|y_i - x_i|)
 ```
 
 where:
@@ -153,26 +156,26 @@ Let $\bar{y}$ be mean of the observed data:
 \bar{y} = \frac{1}{n}\sum_{i=1}^{n} y_i
 ```
 
-- Residual Sum of Squares (SSres)
+Residual Sum of Squares (SSres)
 
 ```math
 SS_{res} = \sum_{i=1}^{n}(y_i - f_i)^2 = \sum_{i=1}^{n} e_i^2
 ```
 
-- Total Sum of Squares (SStot)
+Total Sum of Squares (SStot)
 
 ```math
 SS_{tot} = \sum_{i=1}^{n}(y_i - \bar{y})^2
 ```
 
-- R<sup>2</sup> Score (Coefficient of Determination)
+R<sup>2</sup> Score (Coefficient of Determination)
 
 ```math
 R^2 = 1 - \frac{SS_{res}}{SS_{tot}}
 ```
 
 - Reason:
-It can serve as a fitness indicator for our prediction procedure - if the value is negative, it implies that the procedure does not fit the model well.
+It can serve as a fitness indicator for our prediction model - if the value is negative, it implies that the model does not fit the data set well.
 Moreover, since the desired (and usual) results always range in [0,1], it's more intuitive because of the existence of a counterpart representation in
 percentage.
 
@@ -272,6 +275,8 @@ the dependent variable is the prediction value. Therefore, it can be used for co
 **ID:** REQ-21  
 **Type:** Functional  
 **Text:** The system shall provide a prototype script or notebook that accepts new data and prints the predicted remaining time for active cases.
+
+# Definition of Success
 
 # Module Responsibility  
 Sarp: REQ-xx, REQ-xx, ...  
