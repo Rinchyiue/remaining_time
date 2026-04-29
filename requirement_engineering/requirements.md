@@ -19,7 +19,11 @@ requirement, continuing the numeric sequence of ID.
 but instead provided on our Trello Kanban https://trello.com/b/SvWcKF1S/remaining-time-spp.
 
 # General Summary
-TO DO
+In the first section, we will go through our (potential) stakeholders and their expectations; then in the second setion, a brief  
+introduction to the (quantitative) metrices used for evaluation will be unfolded; next comes a list of grouped functional, non-functional 
+requirements, and constraints that will guide the development will be presented in the third part; after that, in the fourth part, concrete  
+job allocation to each team member will be documented; before ending up, we will also try to define criteria for success of out project  
+and provide a more straight-forward functional model, as well as a traceability matric to track the process.
 
 # Stakeholders
 ## Summary  
