@@ -104,7 +104,7 @@ $x_i$ is the actual value
 $n$ is the number of observations
 
 - Reason:  
-One of the most standard metrices for prediction accuracy, and an arithmetic mean simple to calculate.  Since the prediction cases
+One of the most standard metrices for prediction accuracy (a regression task), and an arithmetic mean simple to calculate.  Since the prediction cases
 with same model and prefix length are equally weighed, MAE's incapability in different data scales can be ignored in this context.
 
 **RMSE**  
@@ -120,7 +120,7 @@ $x_i$ is the actual value
 $n$ is the number of observations
 
 - Reason:
-One of the most standard metrics for prediction accuracy, especially in the area machine learning. The indicator is scale-dependent,
+One of the most standard metrics for prediction accuracy (a regression task), especially in the area machine learning. The indicator is scale-dependent,
 analog to MAE, this property is not violated. Moreover, RMSE is sensitive to outliners, for each error is proportional to the size  
 of the squared error, thus large errors can have significant influence on the outcome.
 
@@ -399,7 +399,15 @@ In a nutshell, from the qualitative criteria listed, success in our project can 
 
 \* : Emphasis here is on the property of excession, rather than the concrete numeric value. 
 
-## Quantitative Criteria
+## Quantitative Criteria  
+Accuracy is seen as the dominate criterion, which is also a baseline according to the assignment. However, the thresholds of indictors introduced in this project for a "good" prediction model could hardly be  
+precisely defined, because they are strongly context-dependent to the use cases. For instance, tolerance to quality of industrial water is often greater than to household water.  
+
+What we can do in this project is to compare one trained prediction model with other and define a criterion, based on statistics gathered, for the relative quality level of a model to the other. Therefore, in this  
+sense, it is not sensible to predefine a precise numeric value without the support of statistics here.  
+
+In the end of the development process, we will provide the accuracy acquired by the best model trained, and provide them as reference for potential stakeholders to determine, whether our software can meet their  
+demand and tolerance. Also as stated in the metrices' description, the four indicators that we introduce can be supportive for multi-dimentional fitness analysis regarding stakeholders' use cases.  
 
 # Module Responsibility  
 Sarp: REQ-xx, REQ-xx, ...  
@@ -409,3 +417,87 @@ Qifan:
 # Functional Model
 
 # Traceability Matric
+## Plan for update (both requirements and the matric)
+Regular: After the first or second weekly-meeting during a milestone phase.  
+Optional: Whenever necessary during the development phases.  
+
+Important is that the updates should always stay in alignment with the Trello Kanban, vice versa.  
+
+## Matric explanation
+In total, there will be 5 matrices, which consists one for general view, and each of the rest four for a group of requirements (Ps: "Organisation" is omitted, because it is already completed). 
+As for the columns, we select "Requirement ID", "Analysis", "Design", "Implementation", "Documentation", "Test", "Evaluation", "Review", and "Deliverable", which roughly simulates the develop ment process for a single  
+requirement with specification in taking "Documentation" out from "Implementation" and "Evaluation" out from "Test". The reason for this seperation is to emphasize explainability in this project which can be a weakness  
+of students. 
+
+As for the rows, in the matric for general view, each of them stands for a submatric; in other submatrices, each of them corresponds to a requirement.  
+
+It is also worth mentioning that the constraints should be followed throughout the development process, therefore, there will not be a matric tracing them.  
+
+## The Matric
+### Matric 0: General View
+|Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
+|---|---|---|---|---|---|---|---|---|
+|Data and Preprocessing|---|---|---|---|---|---|---|---|
+|Modelling and Evaluation|---|---|---|---|---|---|---|---|
+|Infrastructure and Tooling|---|---|---|---|---|---|---|---|
+|Reporting and Explainablity|---|---|---|---|---|---|---|---|
+
+### Matric 1: Data and Preprocessing
+|Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
+|---|---|---|---|---|---|---|---|---|
+|REQ-01|---|---|---|---|---|---|---|---|
+|REQ-02|---|---|---|---|---|---|---|---|
+|REQ-03|---|---|---|---|---|---|---|---|
+|REQ-04|---|---|---|---|---|---|---|---|
+|REQ-05|---|---|---|---|---|---|---|---|
+|REQ-06|---|---|---|---|---|---|---|---|
+|REQ-07|---|---|---|---|---|---|---|---|
+|REQ-08|---|---|---|---|---|---|---|---|
+|REQ-09|---|---|---|---|---|---|---|---|
+|REQ-10|---|---|---|---|---|---|---|---|
+|REQ-11|---|---|---|---|---|---|---|---|
+
+### Matric 2: Modelling and Evaluation  
+|Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
+|---|---|---|---|---|---|---|---|---|
+|REQ-12|---|---|---|---|---|---|---|---|
+|REQ-13|---|---|---|---|---|---|---|---|
+|REQ-14|---|---|---|---|---|---|---|---|
+|REQ-15|---|---|---|---|---|---|---|---|
+|REQ-16|---|---|---|---|---|---|---|---|
+|REQ-17|---|---|---|---|---|---|---|---|
+|REQ-18|---|---|---|---|---|---|---|---|
+|REQ-19|---|---|---|---|---|---|---|---|
+|REQ-20|---|---|---|---|---|---|---|---|
+|REQ-21|---|---|---|---|---|---|---|---|
+|REQ-22|---|---|---|---|---|---|---|---|
+|REQ-23|---|---|---|---|---|---|---|---|
+|REQ-24|---|---|---|---|---|---|---|---|
+|REQ-25|---|---|---|---|---|---|---|---|
+|REQ-26|---|---|---|---|---|---|---|---|
+|REQ-27|---|---|---|---|---|---|---|---|
+
+### Matric 3: Infrastructure and Tooling  
+|Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
+|---|---|---|---|---|---|---|---|---|
+|REQ-28|---|---|---|---|---|---|---|---|
+|REQ-29|---|---|---|---|---|---|---|---|
+|REQ-30|---|---|---|---|---|---|---|---|
+|REQ-31|---|---|---|---|---|---|---|---|
+
+### Matric 4: Reporting and Explainability
+|Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
+|---|---|---|---|---|---|---|---|---|
+|REQ-32|---|---|---|---|---|---|---|---|
+|REQ-33|---|---|---|---|---|---|---|---|
+|REQ-34|---|---|---|---|---|---|---|---|
+|REQ-35|---|---|---|---|---|---|---|---|
+|REQ-36|---|---|---|---|---|---|---|---|
+|REQ-37|---|---|---|---|---|---|---|---|
+|REQ-38|---|---|---|---|---|---|---|---|
+|REQ-39|---|---|---|---|---|---|---|---|
+|REQ-40|---|---|---|---|---|---|---|---|
+|REQ-41|---|---|---|---|---|---|---|---|
+|REQ-42|---|---|---|---|---|---|---|---|
+|REQ-43|---|---|---|---|---|---|---|---|
+|REQ-44|---|---|---|---|---|---|---|---|
