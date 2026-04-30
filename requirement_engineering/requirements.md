@@ -275,12 +275,12 @@ the dependent variable is the prediction value. Therefore, it can be used for co
 
 **ID:** REQ-22  
 **Type:** Non-functional  
-**Text:** Hyperparameters should be specified in a configuration file or in an easily editable block of code, not hard-coded throughout the pipeline
+**Text:** Hyperparameters should be specified in a configuration file or in an easily editable block of code, not hard-coded throughout the pipeline.
 
 **ID:** REQ-23  
 **Type:** Non-functional  
 **Text:** At least 3–5 automatic unit tests should be created for core components (e.g. checks correct computation of remaining time labels on a small synthetic 
-log)
+log).
 
 ## Infrastructure and Tooling
 **ID:** REQ-24  
