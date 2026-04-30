@@ -9,8 +9,8 @@ Sarp    Aydoslu
 Qifan   Wu      
 
 # Current Roles  
-Linas Butkus&nbsp;&nbsp;-  Evaluation & Visualization Lead, Quality & Tooling (Tests, CI)  
-Sarp Aydoslu&nbsp;-  Data & Preprocessing Lead, Modelling & Experimentation Lead  
+Sarp Aydoslu&nbsp;&nbsp;-  Evaluation & Visualization Lead, Quality & Tooling (Tests, CI)  
+Linas Butkus&nbsp;-  Data & Preprocessing Lead, Modelling & Experimentation Lead  
 Qifan Wu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Project Coordinator, Technical Lead  
   
 PS: All of us are responsible for the documentation and reporting.  
