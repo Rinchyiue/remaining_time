@@ -371,6 +371,7 @@ demand and tolerance. Also as stated in the metrices' description, the four indi
 Sarp: REQ-xx, REQ-xx, ...  
 Linas:  
 Qifan:  
+All: REQ-20, REQ-21, REQ-25, REQ-27, REQ-32, REQ-33  
 
 # Functional Model
 
