@@ -18,7 +18,7 @@ requirement, continuing the numeric sequence of ID.
 2. The detailed allocation of requirements to people will not be explicitly given in this file,  
 but instead provided on our Trello Kanban https://trello.com/b/SvWcKF1S/remaining-time-spp.
 
-# General Summary
+# Overview
 In the first section, we will go through our (potential) stakeholders and their expectations; then in the second setion, a brief  
 introduction to the (quantitative) metrices used for evaluation will be unfolded; next comes a list of grouped functional, non-functional 
 requirements, and constraints that will guide the development will be presented in the third part; after that, in the fourth part, concrete  
@@ -338,7 +338,39 @@ log).
 **Text:** Instructions or scripts to download / place the dataset should be provided.  
 
 # Definition of Success
-The definition of success regarding this project should be viewed from two perspectives: qualitative and quantitative. They are both important components standing behind the project value. 
+The definition of success regarding this project should be viewed from two perspectives: quantitative and qualitative. They are both important components standing behind the project value. 
+
+## Quantitative Criteria  
+Accuracy is seen as the dominate criterion, which is also a baseline according to the assignment. However, the thresholds of indictors introduced in this project for a "good" prediction model could hardly be  
+precisely defined, because they are strongly context-dependent to the use cases. For instance, tolerance to quality of industrial water is often greater than to household water.  
+
+However, we can apply the following two approaches:  
+
+### Comparative Evaluation
+Inspired by [1], we will try to apply a more naive method to compare model quality (binary relation*):  
+
+We assume that, if the prefix length holds same: MAE, RMSE, MedAE, and R^2 Score are equally weighed, i.e. each counts for 25% of the final scoring. However, given that MAE, RMSE, MedAE are often not percentage values, we have to first convert them into (relative) percentage values to combine with R^2 Score and be presented in a more intuitive form.  
+
+Let B be the "best" model trained, and T be the model to compare with B,  
+
+Super(B,T) := sigma (1/4 * (xi(B)-xi(T))/xi(B)) for i = 1,2,3,4 and xi sequantially corresponds to MAE, RMSE, MedAE, and R^2 Score
+
+- If xi(T) <= xi(B), the value of (xi(B)-xi(T))/xi(B) will stay in [0,1];   
+- If xi(T) > xi(B), the value of (xi(B)-xi(T))/xi(B) will be negative, but this can be tolerated locally.
+
+Further, we can label with (we select 5% as significance level):  
+
+|Value|Super(B,T) < -0.05|-0.05 <= Super(B,T) <= 0.05|Super(B,T) > 0.05|
+|-|-|-|-|
+|Meaning|Model T performs worse than model B (T < B)|Model T performs equally as model B (T = B)|Model T performs better than model B (T > B)|
+
+In the end of the development process, we will provide the accuracy acquired by the best model trained, and provide them as reference for potential stakeholders to determine, whether our software can meet their  
+demand and tolerance. Also as stated in the metrices' description, the four indicators that we introduce can be supportive for multi-dimentional fitness analysis regarding stakeholders' use cases. 
+
+\* : Binary relation is sufficient, because we only save the best performing model trained, and each time we only have to compare the current trained model with the saved "best" model.  
+
+### Assumed Thresholds  
+
 
 ## Qualitative Criteria
 All of the listed requirements (and constraints) should be fulfilled - this serves as a baseline for our project. Ditto, we can also view them as an influential part of foundation of "success" in our project.  
@@ -355,17 +387,7 @@ Moreover, considering the whole development process, success can also be defined
 
 In a nutshell, from the qualitative criteria listed, success in our project can be partially viewed as requirement fulfillment (excession) + experience and soft skills obtained from the project.  
 
-\* : Emphasis here is on the property of excession, rather than the concrete numeric value. 
-
-## Quantitative Criteria  
-Accuracy is seen as the dominate criterion, which is also a baseline according to the assignment. However, the thresholds of indictors introduced in this project for a "good" prediction model could hardly be  
-precisely defined, because they are strongly context-dependent to the use cases. For instance, tolerance to quality of industrial water is often greater than to household water.  
-
-What we can do in this project is to compare one trained prediction model with other and define a criterion, based on statistics gathered, for the relative quality level of a model to the other. Therefore, in this  
-sense, it is not sensible to predefine a precise numeric value without the support of statistics here.  
-
-In the end of the development process, we will provide the accuracy acquired by the best model trained, and provide them as reference for potential stakeholders to determine, whether our software can meet their  
-demand and tolerance. Also as stated in the metrices' description, the four indicators that we introduce can be supportive for multi-dimentional fitness analysis regarding stakeholders' use cases.  
+\* : Emphasis here is on the property of excession, rather than the concrete numeric value.  
 
 # Module Responsibility  
 Sarp: REQ-23, REQ-24, REQ-28, REQ-29, REQ-34, REQ-35  
@@ -451,3 +473,6 @@ It is also worth mentioning that the constraints should be followed throughout t
 |REQ-34|---|---|---|---|---|---|---|---|
 |REQ-35|---|---|---|---|---|---|---|---|
 |REQ-36|---|---|---|---|---|---|---|---|
+
+# References
+[1]: Rama-Maneiro, Efrén, Juan C. Vidal, and Manuel Lama. "Deep learning for predictive business process monitoring: Review and benchmark." IEEE Transactions on Services Computing 16.1 (2021): 739-756.
