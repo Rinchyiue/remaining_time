@@ -378,12 +378,14 @@ All: REQ-20, REQ-21, REQ-25, REQ-27, REQ-32, REQ-33
 # Traceability Matrix
 ## Plan for update (both requirements and the matric)
 Regular: After the first or second weekly-meeting during a milestone phase.  
+
 Optional: Whenever necessary during the development phases.  
 
 Important is that the updates should always stay in alignment with the Trello Kanban, vice versa.  
 
 ## Matric explanation
 In total, there will be 5 matrices, which consists one for general view, and each of the rest four for a group of requirements. 
+
 As for the columns, we select "Requirement ID", "Analysis", "Design", "Implementation", "Documentation", "Test", "Evaluation", "Review", and "Deliverable", which roughly simulates the develop ment process for a single  
 requirement with specification in taking "Documentation" out from "Implementation" and "Evaluation" out from "Test". The reason for this seperation is to emphasize explainability in this project which can be a weakness  
 of students. 
