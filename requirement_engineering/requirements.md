@@ -261,123 +261,81 @@ the dependent variable is the prediction value. Therefore, it can be used for co
 **Type:** Functional  
 **Text:** The system shall evaluate model performance separately across multiple prefix lengths, specifically early, mid, and late prefixes.
 
-**ID:** REQ-xx   
+**ID:** REQ-19   
 **Type:** Non-functional  
 **Text:** A complete, reproducible pipeline that goes from raw event log to trained models, evaluated predictions, and a small prototype for running the predictor shall be implemented. 
 
-**ID:** REQ-xx  
+**ID:** REQ-20  
 **Type:** Non-functional  
 **Text:** Code should be structured so that encodings are implemented in reusable functions or classes.
 
-**ID:** REQ-xx  
+**ID:** REQ-21  
 **Type:** Non-functional  
 **Text:** Scikit-learn’s API should be used where possible.
 
-**ID:** REQ-xx  
+**ID:** REQ-22  
 **Type:** Non-functional  
 **Text:** Hyperparameters should be specified in a configuration file or in an easily editable block of code, not hard-coded throughout the pipeline
 
-**ID:** REQ-xx  
+**ID:** REQ-23  
 **Type:** Non-functional  
-**Text:** After choosing the best configuration, iterative retraining of  the model on training + validation data and evaluation on the test set should be performed if appropiate.  
-
-**ID:** REQ-xx  
-**Type:** Non-functional  
-**Text:** The prototype must clearly show how the code could be integrated into a real incident management dashboard.  
-
-**ID:** REQ-xx  
-**Type:** Functional  
 **Text:** At least 3–5 automatic unit tests should be created for core components (e.g. checks correct computation of remaining time labels on a small synthetic 
 log)
 
-**ID:** REQ-xx  
-**Type:** Functional  
-**Text:** A small synthetic event log (e.g., 3–5 cases) should be added to the repository that is used only for testing, not for training the final models. 
-
-**ID:** REQ-xx  
-**Type:** Non-functional  
-**Text:** At least two plots should be included to visualize performance and error distributions.
-
-**ID:** REQ-xx  
-**Type:** Non-functional  
-**Text:** A short written analysis (in report or README) should be provided, focusing on e.g. performance improvement, enhancement effect of machine learning model, and whether certain under-/over-prediction has been systematically performed on certain patterns in certain incidents.
-
 ## Infrastructure and Tooling
-**ID:** REQ-xx  
+**ID:** REQ-24  
 **Type:** Constraint  
 **Text:** Either pytest or Python’s built-in unittest framework should be used.
 
-**ID:** REQ-xx   
+**ID:** REQ-25   
 **Type:** Contraint  
 **Text:** Python, PM4Py, scikit-learn, and standard data science libraries should be used.  
 
-**ID:** REQ-xx  
+**ID:** REQ-26  
 **Type:** Contraint  
 **Text:** A Git repository containing all code, tests, and documentation needed to reproduce results shall be established.  
 
-**ID:** REQ-xx  
+**ID:** REQ-27  
 **Type:** Non-functional  
 **Text:** The repository should be organized and readable. 
 
 ## Reporting and Explainability
-**ID:** REQ-19   
+**ID:** REQ-28   
 **Type:** Functional  
 **Text:** The system shall generate a comparison table of all models (baseline and ML models) on test data.
 
-**ID:** REQ-20   
+**ID:** REQ-29   
 **Type:** Functional  
 **Text:** The system shall generate at least two plots visualizing model performance, for example: MAE/RMSE vs. prefix length, distribution of prediction errors, or a scatter plot of predicted vs. actual remaining time.
 
-**ID:** REQ-21  
+**ID:** REQ-30  
 **Type:** Functional  
 **Text:** The system shall provide a prototype script or notebook that accepts new data and prints the predicted remaining time for active cases.
 
-**ID:** REQ-xx  
+**ID:** REQ-31  
 **Type:** Non-functional  
 **Text:**  Hyperparameters tuned and what search strategy used should be documented (e.g. simple gridsearch or manual search). 
 
-**ID:** REQ-xx  
+**ID:** REQ-32  
 **Type:** Non-functional  
-**Text:** Documentation on how to run the tests (e.g., pytest command) in the README should be written.  
+**Text:** The project shall provide a comprehensive README.md file enabling others to run the code independently. It must include a project and dataset description, setup instructions (Python version, virtual environment, dependency installation), and step-by-step commands to reproduce experiments, run the prototype, and execute the test suite.  
 
-**ID:** REQ-xx  
-**Type:** Non-functional  
-**Text:** Clear documentation should be provided so that someone else can run the code without help (at least, README.md, Code-level documentation, Architecture overview).
-
-**ID:** REQ-xx  
-**Type:** Non-functional  
-**Text:** READ.me should include: Short description of the project and its goal, description of the dataset(s) used (source, basic stats). 
-
-**ID:** REQ-xx  
-**Type:** Non-functional  
-**Text:** READ.me should include: setup instructions: Python version, how to create a virtual environment, how to install dependencies (e.g., pip install -r requirements.txt).
-
-**ID:** REQ-xx  
-**Type:** Non-functional  
-**Text:** READ.me should include: instructions on how to: reproduce your experiments (training and evaluation), run the prototype predictor on new data, and run the tests.
-
-**ID:** REQ-xx  
+**ID:** REQ-33  
 **Type:** Non-functional  
 **Text:** Code-level documentation should include: meaningful function and class names, docstrings explaining the purpose and input/output of important functions 
 (especially in feature engineering, label construction, and training), and comments where the logic is non-trivial.
 
-
-**ID:** REQ-xx  
+**ID:** REQ-34  
 **Type:** Non-functional  
 **Text:**  Architecture overview should be provided, as: a short text (can be in README or a separate ARCHITECTURE.md) that explains the project structure, and mention how configuration is handled.  
 
-**ID:** REQ-xx  
+**ID:** REQ-35  
 **Type:** Non-functional  
 **Text:**  A requirements.txt or pyproject.toml specifying the Python dependencies (e.g. PM4Py, scikit-learn, pandas, matplotlib) should be provided.
 
-**ID:** REQ-xx  
+**ID:** REQ-36  
 **Type:** Non-functional  
 **Text:** Instructions or scripts to download / place the dataset should be provided.  
-
-## Organisation
-**ID:** REQ-xx  
-**Type:** Non-functional  
-**Text:** Work shall be done in small groups, while each group member will later write an individual report.  
 
 # Definition of Success
 The definition of success regarding this project should be viewed from two perspectives: qualitative and quantitative. They are both important components standing behind the project value. 
