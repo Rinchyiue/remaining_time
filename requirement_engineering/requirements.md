@@ -368,7 +368,9 @@ If T = B, we will save both models and take both of them to compare with further
 
 If T > B, we will save T and delete B.  
 
-However, even if a model is deleted from the data store, we will still keep 
+However, even if a model is deleted from the data store, we will still keep their accuracy data. 
+
+And in case we end up with more than one model considered as equally capable, we will further calculate their Super values for each pair and list them according to the ">" relation, but ignore the significance level and simply refer to whether the Super value is negative or positive to add < or > relation. After that pick the model which is on the left end as the preferred "best" model to predict.  
 
 In the end of the development process, we will provide the accuracy acquired by the best model trained, and provide them as reference for potential stakeholders to determine, whether our software can meet their  
 demand and tolerance. Also as stated in the metrices' description, the four indicators that we introduce can be supportive for multi-dimentional fitness analysis regarding stakeholders' use cases. 
@@ -376,7 +378,17 @@ demand and tolerance. Also as stated in the metrices' description, the four indi
 \* : Binary relation is sufficient, because we only save the best performing model trained, and each time we only have to compare the current trained model with the saved "best" model.  
 
 ### Assumed Thresholds  
+We will assume performance goal for accuracy, i.e. thresholds for MAE, RMSE, MedAE, and R ^ 2 Score (weighed base on prefix length frequency).  
 
+For MAE, if it can stay in +- 40% from the true mean value, this performance goal can be viewed as "achieved" (From [2], LTSM-based techniques).
+
+For RMSE, if it can stay in +- 50% from the true mean value, this performance goal can be viewed as "achieved".
+
+For MedAE, if it can stay in +- 40% from the true mean value, this performance goal can be viewed as "achieved".
+
+For R ^ 2 Score, we assume that if it can be greater than 70%*, this performance goal can be viewed as "achieved". 
+
+\* : 70% is just above \(\mu \pm 1\sigma\): ~68.27% from the normal distribution.  
 
 ## Qualitative Criteria
 All of the listed requirements (and constraints) should be fulfilled - this serves as a baseline for our project. Ditto, we can also view them as an influential part of foundation of "success" in our project.  
@@ -480,5 +492,6 @@ It is also worth mentioning that the constraints should be followed throughout t
 |REQ-35|---|---|---|---|---|---|---|---|
 |REQ-36|---|---|---|---|---|---|---|---|
 
-# References
+# Reference
 [1]: Rama-Maneiro, Efrén, Juan C. Vidal, and Manuel Lama. "Deep learning for predictive business process monitoring: Review and benchmark." IEEE Transactions on Services Computing 16.1 (2021): 739-756.
+[2]: Verenich, Ilya, et al. "Survey and cross-benchmark comparison of remaining time prediction methods in business process monitoring." ACM Transactions on Intelligent Systems and Technology (TIST) 10.4 (2019): 1-34.
