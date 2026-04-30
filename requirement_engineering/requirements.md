@@ -368,10 +368,10 @@ In the end of the development process, we will provide the accuracy acquired by 
 demand and tolerance. Also as stated in the metrices' description, the four indicators that we introduce can be supportive for multi-dimentional fitness analysis regarding stakeholders' use cases.  
 
 # Module Responsibility  
-Sarp: REQ-xx, REQ-xx, ...  
-Linas:  
-Qifan:  
-All: REQ-20, REQ-21, REQ-25, REQ-27, REQ-32, REQ-33  
+Sarp: REQ-23, REQ-24, REQ-28, REQ-29, REQ-34, REQ-35  
+Linas: REQ-01, REQ-02, REQ-03, REQ-04, REQ-05, REQ-06, REQ-07, REQ-08, REQ-09, REQ-10, REQ-11, REQ-12, REQ-36  
+Qifan: REQ-13, REQ-14, REQ-15, REQ-16, REQ-17, REQ-18, REQ-19, REQ-22, REQ-30, REQ-31  
+All: REQ-20, REQ-21, REQ-25, REQ-26, REQ-27, REQ-32, REQ-33  
 
 # Functional Model
 
