@@ -351,18 +351,24 @@ Inspired by [1], we will try to apply a more naive method to compare model quali
 
 We assume that, if the prefix length holds same: MAE, RMSE, MedAE, and R^2 Score are equally weighed, i.e. each counts for 25% of the final scoring. However, given that MAE, RMSE, MedAE are often not percentage values, we have to first convert them into (relative) percentage values to combine with R^2 Score and be presented in a more intuitive form.  
 
-Let B be the "best" model trained, and T be the model to compare with B,  
+Let B be the "best" model trained, and T be the model to compare with B, Let the set of all unique prefix lengths as L, and freq(l) as for the absolute frequency of evaluated cases with prefix length l. We can define an indicator Super as:  
 
-Super(B,T) := sigma (1/4 * (xi(B)-xi(T))/xi(B)) for i = 1,2,3,4 and xi sequantially corresponds to MAE, RMSE, MedAE, and R^2 Score
+Super(B,T) := sigma l from L freq(l)*(1/4 * (xi(B,l)-xi(T,l))/xi(B,l)) for i = 1,2,3,4 and xi sequantially corresponds to MAE, RMSE, MedAE, and R^2 Score with prefix length = l
 
 - If xi(T) <= xi(B), the value of (xi(B)-xi(T))/xi(B) will stay in [0,1];   
 - If xi(T) > xi(B), the value of (xi(B)-xi(T))/xi(B) will be negative, but this can be tolerated locally.
 
-Further, we can label with (we select 5% as significance level):  
+Further, we can further define the relation <,>, and = (we select 5% as significance level):  
 
 |Value|Super(B,T) < -0.05|-0.05 <= Super(B,T) <= 0.05|Super(B,T) > 0.05|
 |-|-|-|-|
 |Meaning|Model T performs worse than model B (T < B)|Model T performs equally as model B (T = B)|Model T performs better than model B (T > B)|
+
+If T = B, we will save both models and take both of them to compare with further models, until there exists a model N, which has N > T or N > B, then we substitute T or B correspondingly.  
+
+If T > B, we will save T and delete B.  
+
+However, even if a model is deleted from the data store, we will still keep 
 
 In the end of the development process, we will provide the accuracy acquired by the best model trained, and provide them as reference for potential stakeholders to determine, whether our software can meet their  
 demand and tolerance. Also as stated in the metrices' description, the four indicators that we introduce can be supportive for multi-dimentional fitness analysis regarding stakeholders' use cases. 
