@@ -374,7 +374,7 @@ Qifan:
 
 # Functional Model
 
-# Traceability Matric
+# Traceability Matrix
 ## Plan for update (both requirements and the matric)
 Regular: After the first or second weekly-meeting during a milestone phase.  
 Optional: Whenever necessary during the development phases.  
@@ -382,17 +382,17 @@ Optional: Whenever necessary during the development phases.
 Important is that the updates should always stay in alignment with the Trello Kanban, vice versa.  
 
 ## Matric explanation
-In total, there will be 5 matrices, which consists one for general view, and each of the rest four for a group of requirements (Ps: "Organisation" is omitted, because it is already completed). 
+In total, there will be 5 matrices, which consists one for general view, and each of the rest four for a group of requirements. 
 As for the columns, we select "Requirement ID", "Analysis", "Design", "Implementation", "Documentation", "Test", "Evaluation", "Review", and "Deliverable", which roughly simulates the develop ment process for a single  
 requirement with specification in taking "Documentation" out from "Implementation" and "Evaluation" out from "Test". The reason for this seperation is to emphasize explainability in this project which can be a weakness  
 of students. 
 
-As for the rows, in the matric for general view, each of them stands for a submatric; in other submatrices, each of them corresponds to a requirement.  
+As for the rows, in the matrix for general view, each of them stands for a submatric; in other submatrices, each of them corresponds to a requirement.  
 
-It is also worth mentioning that the constraints should be followed throughout the development process, therefore, there will not be a matric tracing them.  
+It is also worth mentioning that the constraints should be followed throughout the development process, therefore, there will not be a matrix tracing them.  
 
-## The Matric
-### Matric 0: General View
+## The Matrix
+### Matrix 0: General View
 |Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
 |---|---|---|---|---|---|---|---|---|
 |Data and Preprocessing|---|---|---|---|---|---|---|---|
@@ -400,7 +400,7 @@ It is also worth mentioning that the constraints should be followed throughout t
 |Infrastructure and Tooling|---|---|---|---|---|---|---|---|
 |Reporting and Explainablity|---|---|---|---|---|---|---|---|
 
-### Matric 1: Data and Preprocessing
+### Matrix 1: Data and Preprocessing
 |Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
 |---|---|---|---|---|---|---|---|---|
 |REQ-01|---|---|---|---|---|---|---|---|
@@ -415,7 +415,7 @@ It is also worth mentioning that the constraints should be followed throughout t
 |REQ-10|---|---|---|---|---|---|---|---|
 |REQ-11|---|---|---|---|---|---|---|---|
 
-### Matric 2: Modelling and Evaluation  
+### Matrix 2: Modelling and Evaluation  
 |Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
 |---|---|---|---|---|---|---|---|---|
 |REQ-12|---|---|---|---|---|---|---|---|
@@ -430,32 +430,21 @@ It is also worth mentioning that the constraints should be followed throughout t
 |REQ-21|---|---|---|---|---|---|---|---|
 |REQ-22|---|---|---|---|---|---|---|---|
 |REQ-23|---|---|---|---|---|---|---|---|
-|REQ-24|---|---|---|---|---|---|---|---|
-|REQ-25|---|---|---|---|---|---|---|---|
-|REQ-26|---|---|---|---|---|---|---|---|
+
+### Matrix 3: Infrastructure and Tooling  
+|Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
+|---|---|---|---|---|---|---|---|---|
 |REQ-27|---|---|---|---|---|---|---|---|
 
-### Matric 3: Infrastructure and Tooling  
+### Matrix 4: Reporting and Explainability
 |Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
 |---|---|---|---|---|---|---|---|---|
 |REQ-28|---|---|---|---|---|---|---|---|
 |REQ-29|---|---|---|---|---|---|---|---|
 |REQ-30|---|---|---|---|---|---|---|---|
 |REQ-31|---|---|---|---|---|---|---|---|
-
-### Matric 4: Reporting and Explainability
-|Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
-|---|---|---|---|---|---|---|---|---|
 |REQ-32|---|---|---|---|---|---|---|---|
 |REQ-33|---|---|---|---|---|---|---|---|
 |REQ-34|---|---|---|---|---|---|---|---|
 |REQ-35|---|---|---|---|---|---|---|---|
 |REQ-36|---|---|---|---|---|---|---|---|
-|REQ-37|---|---|---|---|---|---|---|---|
-|REQ-38|---|---|---|---|---|---|---|---|
-|REQ-39|---|---|---|---|---|---|---|---|
-|REQ-40|---|---|---|---|---|---|---|---|
-|REQ-41|---|---|---|---|---|---|---|---|
-|REQ-42|---|---|---|---|---|---|---|---|
-|REQ-43|---|---|---|---|---|---|---|---|
-|REQ-44|---|---|---|---|---|---|---|---|
