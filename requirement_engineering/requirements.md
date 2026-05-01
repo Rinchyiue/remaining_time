@@ -416,7 +416,7 @@ A model is considered to have "achieved" its performance goal if it satisfies th
 
 ## Qualitative Criteria
 All of the listed requirements (and constraints) should be fulfilled - this serves as a baseline for our project. Ditto, we can also view them as an influential part of foundation of "success" in our project.  
-Beyond those, the execession* in number of concrete implementation / evaluation / explanantion elements than the ones described in requirements can also be viewed as a contributor to "success".  
+Beyond those, the excession* in number of concrete implementation / evaluation / explanantion elements than the ones described in requirements can also be viewed as a contributor to "success".  
 
 Moreover, considering the whole development process, success can also be defined from the more aspects, which are mainly:  
 
