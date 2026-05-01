@@ -351,22 +351,34 @@ Inspired by [1], we will try to apply a more naive method to compare model quali
 
 We assume that, if the prefix length holds same: MAE, RMSE, MedAE, and R^2 Score are equally weighed, i.e. each counts for 25% of the final scoring. However, given that MAE, RMSE, MedAE are often not percentage values, we have to first convert them into (relative) percentage values to combine with R^2 Score and be presented in a more intuitive form.  
 
-Let B be the "best" model trained, and T be the model to compare with B, Let the set of all unique prefix lengths as L, and freq(l) as for the absolute frequency of evaluated cases with prefix length l. We can define an indicator Super as:  
+Let $\mathcal{B}$ be the current "best" model, and $\mathcal{T}$ be the candidate model for comparison. We define the set of unique prefix lengths as $L$ and the absolute frequency of cases for a given length $l \in L$ as $freq(l)$.
 
-Super(B,T) := sigma l from L freq(l)*(1/4 * (xi(B,l)-xi(T,l))/xi(B,l)) for i = 1,2,3,4 and xi sequantially corresponds to MAE, RMSE, MedAE, and R^2 Score with prefix length = l
+Let $\xi_{i}(M, l)$ denote the performance of model $M$ at prefix length $l$ for the $i$-th metric, where $i \in \{1, 2, 3, 4\}$ corresponds sequentially to:
+1. **MAE** 
+2. **RMSE** 
+3. **MedAE** 
+4. **$R^2$ Score**
 
-- If xi(T) <= xi(B), the value of (xi(B)-xi(T))/xi(B) will stay in [0,1];   
-- If xi(T) > xi(B), the value of (xi(B)-xi(T))/xi(B) will be negative, but this can be tolerated locally.
+The indicator function $\text{Super}(\mathcal{B}, \mathcal{T})$ is defined as the weighted average of the relative improvement across all metrics and prefix lengths:
 
-Further, we can further define the relation <,>, and = (we select 5% as significance level):  
+$$ \text{Super}(\mathcal{B}, \mathcal{T}) = \sum_{l \in L} freq(l) \cdot \left( \frac{1}{4} \sum_{i=1}^{4} \frac{\xi_i(\mathcal{B}, l) - \xi_i(\mathcal{T}, l)}{\xi_i(\mathcal{B}, l)} \right) $$
 
-|Value|Super(B,T) < -0.05|-0.05 <= Super(B,T) <= 0.05|Super(B,T) > 0.05|
-|-|-|-|-|
-|Meaning|Model T performs worse than model B (T < B)|Model T performs equally as model B (T = B)|Model T performs better than model B (T > B)|
+**Interpretation of Relative Difference:**
+-   If $\xi_i(\mathcal{T}, l) \le \xi_i(\mathcal{B}, l)$, the term $\frac{\xi_i(\mathcal{B}, l) - \xi_i(\mathcal{T}, l)}{\xi_i(\mathcal{B}, l)}$ falls within the range $[0, 1]$.
+-   If $\xi_i(\mathcal{T}, l) > \xi_i(\mathcal{B}, l)$, the value is negative (indicating performance regression), which is tolerated locally within the summation.
 
-If T = B, we will save both models and take both of them to compare with further models, until there exists a model N, which has N > T or N > B, then we substitute T or B correspondingly.  
+We evaluate the relationship using a significance level of $0.05$:
 
-If T > B, we will save T and delete B.  
+| Condition | Relation | Meaning |
+| :--- | :---: | :--- |
+| $\text{Super}(\mathcal{B}, \mathcal{T}) < -0.05$ | $\mathcal{T} \prec \mathcal{B}$ | Model $\mathcal{T}$ performs worse than model $\mathcal{B}$ |
+| $-0.05 \le \text{Super}(\mathcal{B}, \mathcal{T}) \le 0.05$ | $\mathcal{T} \approx \mathcal{B}$ | Model $\mathcal{T}$ performs equally to model $\mathcal{B}$ |
+| $\text{Super}(\mathcal{B}, \mathcal{T}) > 0.05$ | $\mathcal{T} \succ \mathcal{B}$ | Model $\mathcal{T}$ performs better than model $\mathcal{B}$ |
+
+
+-   **If $\mathcal{T} \approx \mathcal{B}$**: Save both models. Compare subsequent models against both. If a new model $\mathcal{N}$ emerges such that $\mathcal{N} \succ \mathcal{T}$ or $\mathcal{N} \succ \mathcal{B}$, the dominated model is substituted.
+-   **If $\mathcal{T} \succ \mathcal{B}$**: Update the best model state to $\mathcal{T}$ and discard $\mathcal{B}$.
+-   **If $\mathcal{T} \prec \mathcal{B}$**: Discard $\mathcal{T}$ and retain $\mathcal{B}$.
 
 However, even if a model is deleted from the data store, we will still keep their accuracy data. 
 
@@ -378,17 +390,26 @@ demand and tolerance. Also as stated in the metrices' description, the four indi
 \* : Binary relation is sufficient, because we only save the best performing model trained, and each time we only have to compare the current trained model with the saved "best" model.  
 
 ### Assumed Thresholds  
-We will assume performance goal for accuracy, i.e. thresholds for MAE, RMSE, MedAE, and R ^ 2 Score (weighed base on prefix length frequency).  
+We define the global performance goals based on weighted metrics across all prefix lengths. Let $\bar{y}_l$ be the true mean value of the target variable for prefix length $l$, and $w_l$ be the normalized weight based on frequency:
 
-For MAE, if it can stay in +- 40% from the true mean value, this performance goal can be viewed as "achieved" (From [2], LTSM-based techniques).
+$$ w_l = \frac{freq(l)}{\sum_{k \in L} freq(k)} $$
 
-For RMSE, if it can stay in +- 50% from the true mean value, this performance goal can be viewed as "achieved".
+The weighted performance metric $\bar{\xi}_i$ and the weighted true mean $\bar{Y}$ are defined as:
+$$ 
+\bar{\xi}_i = \sum_{l \in L} w_l \cdot \xi_i(M, l), \quad \bar{Y} = \sum_{l \in L} w_l \cdot \bar{y}_l 
+$$
 
-For MedAE, if it can stay in +- 40% from the true mean value, this performance goal can be viewed as "achieved".
+A model is considered to have "achieved" its performance goal if it satisfies the following criteria:
 
-For R ^ 2 Score, we assume that if it can be greater than 70%*, this performance goal can be viewed as "achieved". 
+| Metric | Achievement Criterion | Threshold Logic |
+| :--- | :--- | :--- |
+| **MAE** | $\bar{\xi}_1 \le 0.40 \cdot \bar{Y}$ | Within $\pm 40\%$ of the weighted true mean [2] |
+| **RMSE** | $\bar{\xi}_2 \le 0.50 \cdot \bar{Y}$ | Within $\pm 50\%$ of the weighted true mean |
+| **MedAE** | $\bar{\xi}_3 \le 0.40 \cdot \bar{Y}$ | Within $\pm 40\%$ of the weighted true mean |
+| **$R^2$ Score** | $\bar{\xi}_4 \ge 0.70$ | Exceeds the $1\sigma$ normal distribution threshold* |
 
-\* : 70% is just above \(\mu \pm 1\sigma\): ~68.27% from the normal distribution.  
+---
+\* : The $70\%$ threshold is selected as it represents a performance level slightly above the first standard deviation ($\mu \pm 1\sigma \approx 68.27\%$) of a normal distribution.
 
 ## Qualitative Criteria
 All of the listed requirements (and constraints) should be fulfilled - this serves as a baseline for our project. Ditto, we can also view them as an influential part of foundation of "success" in our project.  
