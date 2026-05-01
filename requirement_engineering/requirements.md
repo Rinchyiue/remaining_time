@@ -531,4 +531,5 @@ It is also worth mentioning that the constraints should be followed throughout t
 
 # Reference
 [1]: Rama-Maneiro, Efrén, Juan C. Vidal, and Manuel Lama. "Deep learning for predictive business process monitoring: Review and benchmark." IEEE Transactions on Services Computing 16.1 (2021): 739-756.
+S
 [2]: Verenich, Ilya, et al. "Survey and cross-benchmark comparison of remaining time prediction methods in business process monitoring." ACM Transactions on Intelligent Systems and Technology (TIST) 10.4 (2019): 1-34.
