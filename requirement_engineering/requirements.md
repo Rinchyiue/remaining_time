@@ -395,8 +395,11 @@ We define the global performance goals based on weighted metrics across all pref
 $$ w_l = \frac{freq(l)}{\sum_{k \in L} freq(k)} $$
 
 The weighted performance metric $\bar{\xi}_i$ and the weighted true mean $\bar{Y}$ are defined as:
-$$ 
-\bar{\xi}_i = \sum_{l \in L} w_l \cdot \xi_i(M, l), \quad \bar{Y} = \sum_{l \in L} w_l \cdot \bar{y}_l 
+
+$$
+\bar{\xi}_i = \sum_{l \in L} w_l \cdot \xi_i(M, l),
+\quad
+\bar{Y} = \sum_{l \in L} w_l \cdot \bar{y}_l
 $$
 
 A model is considered to have "achieved" its performance goal if it satisfies the following criteria:
