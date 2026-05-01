@@ -460,7 +460,7 @@ Optional: Whenever necessary during the development phases.
 
 Important is that the updates should always stay in alignment with the Trello Kanban, vice versa.  
 
-## Matric explanation
+## Matrix explanation
 In total, there will be 5 matrices, which consists one for general view, and each of the rest four for a group of requirements. 
 
 As for the columns, we select "Requirement ID", "Analysis", "Design", "Implementation", "Documentation", "Test", "Evaluation", "Review", and "Deliverable", which roughly simulates the develop ment process for a single  
