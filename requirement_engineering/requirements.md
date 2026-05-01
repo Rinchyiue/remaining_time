@@ -438,6 +438,19 @@ Qifan: REQ-13, REQ-14, REQ-15, REQ-16, REQ-17, REQ-18, REQ-19, REQ-22, REQ-30, R
 All: REQ-20, REQ-21, REQ-25, REQ-26, REQ-27, REQ-32, REQ-33  
 
 # Functional Model
+The main process:  
+
+![Main Process(BPMN)](./bpmn_model/main_process.svg)
+
+Subprocess: preprocess data  
+
+![Sub_preprocess(BPMN)](./bpmn_model/subprocess_pre.svg)
+
+Subprocess: train model  
+
+![Main Process(BPMN)](./bpmn_model/subprocess_train.svg)
+
+All models are carried out in BPMN format. For concrete .bpmn files, please refer to remaining_time/tree/main/requirement_engineering/bpmn_model.
 
 # Traceability Matrix
 ## Plan for update (both requirements and the matric)
