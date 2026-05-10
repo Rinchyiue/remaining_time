@@ -13,13 +13,14 @@
 #           - case level attributes (e.g. cost, resource ...)
 #   optional:
 #           - event level attributes, esp. those of the inspected activity
-#           - combine classification methods -> group and label the prefix traces (not merely absolute variances)
+#           - combine classification methods -> group and label the prefix traces (not merely absolute variances) => Pipeline
 #           - more process respectives (e.g. resource sequence/combination ...)
 # goal: find out "good" coefficients w = (w1,...,wn) and intercept w0
 
 import numpy as np
 from sklearn.linear_model import LinearRegression
-import model_evaluation
+from model_evaluation import myScore
+from joblib import dump
 
 # model_1: ordinary least squares
 
@@ -36,10 +37,15 @@ reg_ols.fit(x_train, y_train)
 coef = reg_ols.coef_
 incp = reg_ols.intercept_
 
+# perhaps to save in a csv file ...
+
 # part_3: evaluation
 # use the validation set
 # since this is the first model, no Super value will be calculated
 x_valid = np.array(valid_matrix)
 y_valid = np.array(valid_target)
 y_pred  = reg_ols.predict(x_valid)
-ols_score = model_evaluation.myScore(y_valid,y_pred)
+ols_score = myScore(y_valid,y_pred)
+
+# part_4: save model
+dump(reg_ols, 'reg_ols.pkl')
