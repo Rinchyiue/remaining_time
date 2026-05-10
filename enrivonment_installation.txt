@@ -1,4 +1,4 @@
 In order to use this software, please install the following packages:
 
 For Windows: 
-Python 3: https://www.python.org/downloads/windows/
+the 64-bit version of Python 3: https://www.python.org/downloads/windows/
