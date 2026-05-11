@@ -1,13 +1,10 @@
 import os
 import urllib.request
 import zipfile
+from config import RAW_DIR, PROCESSED_DIR
 
-# config
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+# module-specific configuration
 DATA_URL = "https://data.4tu.nl/ndownloader/items/0fc5c579-e544-4fab-9143-fab1f5192432/versions/1"
-RAW_DIR = os.path.join(PROJECT_ROOT, "data", "raw")
-PROCESSED_DIR = os.path.join(PROJECT_ROOT, "data", "processed")
 ZIP_FILE_PATH = os.path.join(RAW_DIR, "BPI_Challenge_2013.zip")
 
 
