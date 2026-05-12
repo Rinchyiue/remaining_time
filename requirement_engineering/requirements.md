@@ -483,8 +483,8 @@ It is also worth mentioning that the constraints should be followed throughout t
 ### Matrix 1: Data and Preprocessing
 |Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
 |---|---|---|---|---|---|---|---|---|
-|REQ-01|---|---|---|---|---|---|---|---|
-|REQ-02|---|---|---|---|---|---|---|---|
+|REQ-01|x|x|x|x|---|---|---|---|
+|REQ-02|x|x|x|x|---|---|---|---|
 |REQ-03|---|---|---|---|---|---|---|---|
 |REQ-04|---|---|---|---|---|---|---|---|
 |REQ-05|---|---|---|---|---|---|---|---|
@@ -499,11 +499,11 @@ It is also worth mentioning that the constraints should be followed throughout t
 |Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
 |---|---|---|---|---|---|---|---|---|
 |REQ-12|---|---|---|---|---|---|---|---|
-|REQ-13|---|---|---|---|---|---|---|---|
+|REQ-13|x|x|x|x|---|---|---|---|
 |REQ-14|---|---|---|---|---|---|---|---|
 |REQ-15|---|---|---|---|---|---|---|---|
 |REQ-16|---|---|---|---|---|---|---|---|
-|REQ-17|---|---|---|---|---|---|---|---|
+|REQ-17|x|x|x|x|---|---|---|---|
 |REQ-18|---|---|---|---|---|---|---|---|
 |REQ-19|---|---|---|---|---|---|---|---|
 |REQ-20|---|---|---|---|---|---|---|---|
@@ -511,6 +511,23 @@ It is also worth mentioning that the constraints should be followed throughout t
 |REQ-22|---|---|---|---|---|---|---|---|
 |REQ-23|---|---|---|---|---|---|---|---|
 
+### Matrix 3: Infrastructure and Tooling  
+|Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
+|---|---|---|---|---|---|---|---|---|
+|REQ-27|---|---|---|---|---|---|---|---|
+
+### Matrix 4: Reporting and Explainability
+|Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
+|---|---|---|---|---|---|---|---|---|
+|REQ-28|---|---|---|---|---|---|---|---|
+|REQ-29|---|---|---|---|---|---|---|---|
+|REQ-30|---|---|---|---|---|---|---|---|
+|REQ-31|---|---|---|---|---|---|---|---|
+|REQ-32|---|---|---|---|---|---|---|---|
+|REQ-33|---|---|---|---|---|---|---|---|
+|REQ-34|---|---|---|---|---|---|---|---|
+|REQ-35|---|---|---|---|---|---|---|---|
+|REQ-36|x|x|x|x|---|---|---|---|
 ### Matrix 3: Infrastructure and Tooling  
 |Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
 |---|---|---|---|---|---|---|---|---|
