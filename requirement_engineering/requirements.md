@@ -483,8 +483,8 @@ It is also worth mentioning that the constraints should be followed throughout t
 ### Matrix 1: Data and Preprocessing
 |Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
 |---|---|---|---|---|---|---|---|---|
-|REQ-01|---|---|---|---|---|---|---|---|
-|REQ-02|---|---|---|---|---|---|---|---|
+|REQ-01|x|x|x|x|---|---|---|---|
+|REQ-02|x|x|x|x|---|---|---|---|
 |REQ-03|---|---|---|---|---|---|---|---|
 |REQ-04|---|---|---|---|---|---|---|---|
 |REQ-05|---|---|---|---|---|---|---|---|
@@ -499,11 +499,11 @@ It is also worth mentioning that the constraints should be followed throughout t
 |Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
 |---|---|---|---|---|---|---|---|---|
 |REQ-12|---|---|---|---|---|---|---|---|
-|REQ-13|---|---|---|---|---|---|---|---|
+|REQ-13|x|x|x|x|---|---|---|---|
 |REQ-14|---|---|---|---|---|---|---|---|
 |REQ-15|---|---|---|---|---|---|---|---|
 |REQ-16|---|---|---|---|---|---|---|---|
-|REQ-17|---|---|---|---|---|---|---|---|
+|REQ-17|x|x|x|x|---|---|---|---|
 |REQ-18|---|---|---|---|---|---|---|---|
 |REQ-19|---|---|---|---|---|---|---|---|
 |REQ-20|---|---|---|---|---|---|---|---|
@@ -527,7 +527,7 @@ It is also worth mentioning that the constraints should be followed throughout t
 |REQ-33|---|---|---|---|---|---|---|---|
 |REQ-34|---|---|---|---|---|---|---|---|
 |REQ-35|---|---|---|---|---|---|---|---|
-|REQ-36|---|---|---|---|---|---|---|---|
+|REQ-36|x|x|x|x|---|---|---|---|
 
 # Reference
 [1]: Rama-Maneiro, Efrén, Juan C. Vidal, and Manuel Lama. "Deep learning for predictive business process monitoring: Review and benchmark." IEEE Transactions on Services Computing 16.1 (2021): 739-756.
