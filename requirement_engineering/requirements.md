@@ -406,9 +406,9 @@ A model is considered to have "achieved" its performance goal if it satisfies th
 
 | Metric | Achievement Criterion | Threshold Logic |
 | :--- | :--- | :--- |
-| **MAE** | $\bar{\xi}_1 \le 0.40 \cdot \bar{Y}$ | Within $\pm 40\%$ of the weighted true mean [2] |
-| **RMSE** | $\bar{\xi}_2 \le 0.50 \cdot \bar{Y}$ | Within $\pm 50\%$ of the weighted true mean |
-| **MedAE** | $\bar{\xi}_3 \le 0.40 \cdot \bar{Y}$ | Within $\pm 40\%$ of the weighted true mean |
+| **MAE** | $\bar{\xi}_1 \le 0.40 \cdot \bar{Y}$ | Within $\pm 40\$% of the weighted true mean [2] |
+| **RMSE** | $\bar{\xi}_2 \le 0.50 \cdot \bar{Y}$ | Within $\pm 50\$% of the weighted true mean |
+| **MedAE** | $\bar{\xi}_3 \le 0.40 \cdot \bar{Y}$ | Within $\pm 40\$% of the weighted true mean |
 | **$R^2$ Score** | $\bar{\xi}_4 \ge 0.70$ | Exceeds the $1\sigma$ normal distribution threshold* |
 
 ---
