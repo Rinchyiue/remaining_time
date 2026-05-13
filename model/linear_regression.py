@@ -55,7 +55,6 @@ incp = reg_ols.intercept_
 # part_4: evaluate the model
 # use the test set
 # iterate over prefix lengths and store metrics respectively in rows of scores
-scores = np.empty((0,5))                                # empty matrix with exact 5 columns
 
 df = pd.read_csv("model_metrics.csv")
 for i in range(main().getVariance()):                   # main().getVariance() returns the number of variance of prefix lengths (and assume that they are enumerated)
@@ -64,29 +63,15 @@ for i in range(main().getVariance()):                   # main().getVariance() r
     y_pred  = reg_ols.predict(x_test)
     ols_score = model_evaluation.myScore(y_test,y_pred)
     score_management.add_new_line(df, "ols", main().getLength(i), ols_score)    # getLength(i) returns the prefix length value of index i
-
-    scores = np.vstack([scores, np.insert(ols_score, 0, main().getLength(i))])    # create and append a new row with ols_score and the current prefix length (prepended)
 df.to_csv("model_metrics.csv", index=False)
 
-# mySuper() should be implemented, scoreLists & freqLists should be loaded/called
-
-ols_abs_super = model_evaluation.mySuper(freqList, scoreList1, scoreList2)
-super_val = model_evaluation.mySuper(freqList, scoreList1, scoreList2)
-
-# Store into model_scores.csv
-to_change = False
-best = "N"
-if super_val > 0.05:
-    best = "Y"
-    to_change = True
-elif super_val >= -0.05:
-    best = "Y"
-
-# if to_change, use disprefer()
-
-
-
-
+df1 = pd.read_csv("model_metrics.csv")
+df2 = pd.read_csv("model_scores.csv")
+ols_abs_super = model_evaluation.abs_super(df1, df2, "ols")                     # the absolute super value calculated against baseline
+ols_rel_super = model_evaluation.rel_super(df1, df2, "ols")                     # a list of tuples of compared current 'best' model and relative super value calculated
+update_info = model_evaluation.loose_compare("ols", ols_rel_super)              # the update/setting info
+score_management.update_and_set(df2, update_info, ols_abs_super)
+df2.to_csv("model_scores.csv", index=False)
 
 # part_5: save model
 dump(reg_ols, 'reg_ols.pkl')
