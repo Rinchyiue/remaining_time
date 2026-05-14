@@ -17,13 +17,13 @@
 #           - more process respectives (e.g. resource sequence/combination ...)
 # goal: find out "good" coefficients w = (w1,...,wn) and intercept w0
 
-import main
-import score_management
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
-import model_evaluation
 from joblib import dump
+import main
+import score_management
+import model_evaluation
 
 # model_1: ordinary least squares
 # assume that the main function can bring a dataframe which carries all precessed data
@@ -48,7 +48,9 @@ reg_ols.fit(x_train, y_train)
 
 # part_2: results
 coef = reg_ols.coef_
+coef_string = np.array2string(coef, precision=4, separator=', ')
 incp = reg_ols.intercept_
+result_string = f"coefficient: {coef_string}, intercept: {incp:.4f}"
 
 # part_3: select hyperparameters (omitted, because ols is a naive regression model without hyperparameter)
 
@@ -70,7 +72,7 @@ df2 = pd.read_csv("model_scores.csv")
 ols_abs_super = model_evaluation.abs_super(df1, df2, "ols")                     # the absolute super value calculated against baseline
 ols_rel_super = model_evaluation.rel_super(df1, df2, "ols")                     # a list of tuples of compared current 'best' model and relative super value calculated
 update_info = model_evaluation.loose_compare("ols", ols_rel_super)              # the update/setting info
-score_management.update_and_set(df2, update_info, ols_abs_super)
+score_management.update_and_set(df2, update_info, ols_abs_super, result_string)
 df2.to_csv("model_scores.csv", index=False)
 
 # part_5: save model

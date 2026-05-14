@@ -15,9 +15,21 @@ metrics = ["MAE","RMSE","MedAE","R2"]
 # @output:
 #       type: numpy.ndarray
 #       content: a list which consists of MAE, RMSE, MedAE and R2-Score
+# functionality: calculate the metrics of given true and prediction values
 def myScore(a_true, a_pred):
     return np.array([mean_absolute_error(a_true,a_pred), root_mean_squared_error(a_true,a_pred),
             median_absolute_error(a_true,a_pred), r2_score(a_true,a_pred)])
+
+# @para metrics_list:
+#       type: numpy.ndarray
+#       content: output of myScore()
+# @output:
+#       type: np.float64
+#       content: arithmetic average of the four metrics
+# functionality: make a naive index which ranges in (0,1] with the property "the higher, the better"
+# notice: we don't consider one of MAE, RMSE , or MedAe can reach infinity
+def validScore(metrics_list):
+    return np.average([1 / (metrics_list[i] + 1) for i in range(3)] + [metrics_list[3]])            # 1 is added to the divisor to keep it not equal 0
 
 # @para score1, score2:
 #       type: numpy.ndarray
@@ -27,7 +39,7 @@ def myScore(a_true, a_pred):
 #       content: the partial Super value from the second model against the first model
 # functionality: this is a function for Super relation between two models with identical prefix length, without respect to frequency
 def singleScore(score1,score2):
-    return sum(0.25 * (x-y)/x for x,y in zip(score1,score2))
+    return (sum(.25 * (score1[i] - score2[i]) / score1[i] for i in range(3)) + 0.25 * (score2[3] - score1[3]) / score2[3])
 
 # @para df:
 #       type: pandas.DataFrame

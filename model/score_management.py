@@ -59,9 +59,9 @@ def update(df, update_info):
 #       type: numpy.float64
 #       content: the absolute super value of the model to be added
 # functionality: update the status of best in the data frame and add a new row with information of the new model
-def update_and_set(df, update_info, abs_super):
+def update_and_set(df, update_info, abs_super, details):
     update(df, update_info)
-    nl= pd.DataFrame([{"name": update_info[-1][0], "best": update_info[-1][1], "abs_super": abs_super}])        # update_info[-1] is a tuple where information of model to be set is stored
+    nl= pd.DataFrame([{"name": update_info[-1][0], "best": update_info[-1][1], "abs_super": abs_super, "details": details}])        # update_info[-1] is a tuple where information of model to be set is stored
     df = pd.concat([df, nl], ignore_index=True)
 
 # @para df:
