@@ -70,6 +70,33 @@ distributions. And they allow for performance comparisons across different prefi
 These visualisations help us to see how well the models perform and spot any patterns or
 weaknesses in the predictions.  
 
+# Setup Instruction
+For Python 3.10 or newer.
+
+### To create a virtual environment
+
+```bash
+python -m venv venv
+```
+
+### To activate the virtual environment
+
+#### Windows
+```bash
+venv\Scripts\activate
+```
+
+#### macOS / Linux
+```bash
+source venv/bin/activate
+```
+
+### Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
 # Orga  
 &nbsp;&nbsp;- regular weekly meeting:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sun. 19:30 - 20:30
