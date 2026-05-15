@@ -9,4 +9,7 @@ def compute_remaining_time(log, case_id_col, timestamp_col):
     return log
 
 def filter_short_prefixes(log, case_id_col, min_length):
-    print("Filtering short prefixes...")
+    print(f"Filtering cases with less than {min_length} events...")
+    log = log.groupby(case_id_col).filter(lambda x: len(x) >= min_length)
+    print("Cases have been filtered successfully.")
+    return log

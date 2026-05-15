@@ -1,5 +1,5 @@
 import pm4py
-from config import XES_FILE_PATH,  REQUIRED_COLUMNS
+from config import XES_FILE_PATH
 
 def load_data():
     print("Loading log...")
