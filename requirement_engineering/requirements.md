@@ -361,11 +361,11 @@ Let $\xi_{i}(M, l)$ denote the performance of model $M$ at prefix length $l$ for
 
 The indicator function $\text{Super}(\mathcal{B}, \mathcal{T})$ is defined as the weighted average of the relative improvement across all metrics and prefix lengths:
 
-$$ \text{Super}(\mathcal{B}, \mathcal{T}) = \sum_{l \in L} freq(l) \cdot \left( \frac{1}{4} \sum_{i=1}^{4} \frac{\xi_i(\mathcal{B}, l) - \xi_i(\mathcal{T}, l)}{\xi_i(\mathcal{B}, l)} \right) $$
+$$ \text{Super}(\mathcal{B}, \mathcal{T}) = \sum_{l \in L} freq(l) \cdot \left( \frac{1}{4} \left[ \sum_{i=1}^{3} \frac{\xi_i(\mathcal{B}, l) - \xi_i(\mathcal{T}, l)}{\xi_i(\mathcal{B}, l)} + \frac{\xi_4(\mathcal{T}, l) - \xi_4(\mathcal{B}, l)}{\xi_4(\mathcal{B}, l)} \right] \right) $$
 
 **Interpretation of Relative Difference:**
 -   If $\xi_i(\mathcal{T}, l) \le \xi_i(\mathcal{B}, l)$, the term $\frac{\xi_i(\mathcal{B}, l) - \xi_i(\mathcal{T}, l)}{\xi_i(\mathcal{B}, l)}$ falls within the range $[0, 1]$.
--   If $\xi_i(\mathcal{T}, l) > \xi_i(\mathcal{B}, l)$, the value is negative (indicating performance regression), which is tolerated locally within the summation.
+-   If $\xi_i(\mathcal{T}, l) > \xi_i(\mathcal{B}, l)$, the value is negative (indicating performance regression), which is tolerated locally within the summation (or benefitial for $R^2$ Score).
 
 We evaluate the relationship using a significance level of $0.05$:
 
@@ -406,9 +406,9 @@ A model is considered to have "achieved" its performance goal if it satisfies th
 
 | Metric | Achievement Criterion | Threshold Logic |
 | :--- | :--- | :--- |
-| **MAE** | $\bar{\xi}_1 \le 0.40 \cdot \bar{Y}$ | Within $\pm 40\%$ of the weighted true mean [2] |
-| **RMSE** | $\bar{\xi}_2 \le 0.50 \cdot \bar{Y}$ | Within $\pm 50\%$ of the weighted true mean |
-| **MedAE** | $\bar{\xi}_3 \le 0.40 \cdot \bar{Y}$ | Within $\pm 40\%$ of the weighted true mean |
+| **MAE** | $\bar{\xi}_1 \le 0.40 \cdot \bar{Y}$ | Within $\pm 40\$% of the weighted true mean [2] |
+| **RMSE** | $\bar{\xi}_2 \le 0.50 \cdot \bar{Y}$ | Within $\pm 50\$% of the weighted true mean |
+| **MedAE** | $\bar{\xi}_3 \le 0.40 \cdot \bar{Y}$ | Within $\pm 40\$% of the weighted true mean |
 | **$R^2$ Score** | $\bar{\xi}_4 \ge 0.70$ | Exceeds the $1\sigma$ normal distribution threshold* |
 
 ---
