@@ -1,3 +1,7 @@
+"""
+Script to set up the environment and download+extract the raw data
+"""
+
 import os
 import urllib.request
 import zipfile
