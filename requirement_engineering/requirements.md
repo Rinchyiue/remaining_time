@@ -528,23 +528,6 @@ It is also worth mentioning that the constraints should be followed throughout t
 |REQ-34|---|---|---|---|---|---|---|---|
 |REQ-35|---|---|---|---|---|---|---|---|
 |REQ-36|x|x|x|x|---|---|---|---|
-### Matrix 3: Infrastructure and Tooling  
-|Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
-|---|---|---|---|---|---|---|---|---|
-|REQ-27|---|---|---|---|---|---|---|---|
-
-### Matrix 4: Reporting and Explainability
-|Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
-|---|---|---|---|---|---|---|---|---|
-|REQ-28|---|---|---|---|---|---|---|---|
-|REQ-29|---|---|---|---|---|---|---|---|
-|REQ-30|---|---|---|---|---|---|---|---|
-|REQ-31|---|---|---|---|---|---|---|---|
-|REQ-32|---|---|---|---|---|---|---|---|
-|REQ-33|---|---|---|---|---|---|---|---|
-|REQ-34|---|---|---|---|---|---|---|---|
-|REQ-35|---|---|---|---|---|---|---|---|
-|REQ-36|---|---|---|---|---|---|---|---|
 
 # Reference
 [1]: Rama-Maneiro, Efrén, Juan C. Vidal, and Manuel Lama. "Deep learning for predictive business process monitoring: Review and benchmark." IEEE Transactions on Services Computing 16.1 (2021): 739-756.
