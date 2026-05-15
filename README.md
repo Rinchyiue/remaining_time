@@ -96,7 +96,25 @@ source venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
+# Dataset
+The dataset used is the "BPI Challenge 2013: Incident Management Log", which consists of 7.556 incidents and 2.306 closed problems. These stem from Volvo IT Belgium's incident and problem management system and directly concern IT incident handling.
+
+The incident process strives to restore normale service when an incident occurs. It entails the entire lifecycle of a case, including escalation across support lines. For this purpose the dataset also records priority-related attributes such as impact and urgency.
+
+## Setup & Download
+To download and place the dataset, a data setup script is provided.
+1. Open terminal.
+2. Navigate to the root directory of the repository and then to directory remaining_time.
+3. Run the data setup script:
+   ```bash
+   # On Windows (or inside an active virtual environment):
+   python data_setup.py
+
+   # On macOS/Linux (without a virtual environment):
+   python3 data_setup.py
+   ```
 
 # Orga  
 &nbsp;&nbsp;- regular weekly meeting:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sun. 19:30 - 20:30
+
