@@ -147,3 +147,33 @@ def strict_compare(df1, df2):
         if name != best_list[0]:
             res.append((name, 'D'))
     return res
+
+# @para model:
+#       content: the model to be evaluated
+# @para model_name:
+#       type: str
+#       content: the name of the model given
+# @para test_data:
+#       type: pandas.DataFrame
+#       content: the test_data given
+# @para result_string:
+#       type: str
+#       content: extra details for the model to be stored
+# functionality: evaluate the model and store the evaluation results into .csv files
+def evaluate_model(model, model_name, test_data, result_string):
+    df = pd.read_csv("model_metrics.csv")
+    for i in range(main().getVariance()):                   # main().getVariance() returns the number of variance of prefix lengths (and assume that they are enumerated)
+        x_test = test_data[:,:-1]               # getTestData(i) is the only data getter which requires a prefix length to obtain data set
+        y_test = test_data[:,-1]
+        y_pred  = model.predict(x_test)
+        score = myScore(y_test,y_pred)
+        score_management.add_new_line(df, model_name, main().getLength(i), score)    # getLength(i) returns the prefix length value of index i
+    df.to_csv("model_metrics.csv", index=False)
+
+    df1 = pd.read_csv("model_metrics.csv")
+    df2 = pd.read_csv("model_scores.csv")
+    abs_super = abs_super(df1, df2, model_name)                     # the absolute super value calculated against baseline
+    rel_super = rel_super(df1, df2, model_name)                     # a list of tuples of compared current 'best' model and relative super value calculated
+    update_info = loose_compare(model_name, rel_super)              # the update/setting info
+    score_management.update_and_set(df2, update_info, abs_super, result_string)
+    df2.to_csv("model_scores.csv", index=False)

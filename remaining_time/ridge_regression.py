@@ -6,9 +6,9 @@ import pandas as pd
 import numpy as np
 from sklearn import linear_model
 from joblib import dump
-import main
-import score_management
-import model_evaluation
+from data_helpers import preprocess_data
+from data_splitter import time_based_split
+from model_evaluation import myScore, validScore, evaluate_model
 
 # part_1: training
 # use the training set
@@ -19,9 +19,11 @@ import model_evaluation
 #       type:       numpy.ndarray
 #       content:    a list of target values (remaining time) of each case
 # Notice: x_train, y_train contains all training traces with all prefix lengths
+log = preprocess_data()
+train_data, val_data, test_data = time_based_split(log, 0, 2)
 
-x_train = main().getTrainData()[:,:-1]                 # all columns except the last one
-y_train = main().getTrainData()[:,-1]                  # only the last column
+x_train = train_data[:,:-1]                 # all columns except the last one
+y_train = train_data[:,-1]                  # only the last column
 
 alphas = [0.0001, 0.001, 0.01, 0.1, 1, 10, 100, 1000]           # a set of alphas to try
 models = [linear_model.Ridge(alpha=a) for a in alphas]          # a set of corresponding models
@@ -30,16 +32,16 @@ for model in models:
 
 # part_2: select hyperparameters
 # use the validation set
-x_valid = main().getValidData()[:,:-1]
-y_valid = main().getValidData()[:,-1]
+x_valid = val_data[:,:-1]
+y_valid = val_data[:,-1]
 
 best_model = None
 best_score = 0      # any model can have a score greater than 0 as the output of validScore() is defined in (0,1]
 index = -1
 for i in range(len(models)):
     pred = models[i].predict(x_valid)
-    score_list = model_evaluation.myScore(y_valid, pred)
-    valid_score = model_evaluation.validScore(score_list)
+    score_list = myScore(y_valid, pred)
+    valid_score = validScore(score_list)
     if valid_score > best_score:
         best_score = valid_score
         best_model = models[i]
@@ -63,22 +65,7 @@ result_string = f"alpha: {tuned_alpha}, coefficient: {coef_string}, intercept: {
 # part_5 evaluate the model
 # use the test set
 # iterate over prefix lengths and store metrics respectively in rows of scores
-df = pd.read_csv("model_metrics.csv")
-for i in range(main().getVariance()):                   # main().getVariance() returns the number of variance of prefix lengths (and assume that they are enumerated)
-    x_test = main().getTestData(i)[:,:-1]               # getTestData(i) is the only data getter which requires a prefix length to obtain data set
-    y_test = main().getTestData(i)[:,-1]
-    y_pred  = cur_model.predict(x_test)
-    ridge_score = model_evaluation.myScore(y_test,y_pred)
-    score_management.add_new_line(df, "ridge", main().getLength(i), ridge_score)    # getLength(i) returns the prefix length value of index i
-df.to_csv("model_metrics.csv", index=False)
-
-df1 = pd.read_csv("model_metrics.csv")
-df2 = pd.read_csv("model_scores.csv")
-ridge_abs_super = model_evaluation.abs_super(df1, df2, "ridge")                     # the absolute super value calculated against baseline
-ridge_rel_super = model_evaluation.rel_super(df1, df2, "ridge")                     # a list of tuples of compared current 'best' model and relative super value calculated
-update_info = model_evaluation.loose_compare("ridge", ridge_rel_super)              # the update/setting info
-score_management.update_and_set(df2, update_info, ridge_abs_super, result_string)
-df2.to_csv("model_scores.csv", index=False)
+evaluate_model(cur_model, "ridge", test_data, result_string)
 
 # part_6: save model
 dump(cur_model, 'ridge.pkl')
