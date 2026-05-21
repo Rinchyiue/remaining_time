@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import main
 import score_management
+from data_helpers import getVariants
 
 metrics = ["MAE","RMSE","MedAE","R2"]
 
@@ -162,12 +163,12 @@ def strict_compare(df1, df2):
 # functionality: evaluate the model and store the evaluation results into .csv files
 def evaluate_model(model, model_name, test_data, result_string):
     df = pd.read_csv("model_metrics.csv")
-    for i in range(main().getVariance()):                   # main().getVariance() returns the number of variance of prefix lengths (and assume that they are enumerated)
-        x_test = test_data[:,:-1]               # getTestData(i) is the only data getter which requires a prefix length to obtain data set
+    for i in range(len(getVariants(test_data))):
+        x_test = test_data[:,:-1]
         y_test = test_data[:,-1]
         y_pred  = model.predict(x_test)
         score = myScore(y_test,y_pred)
-        score_management.add_new_line(df, model_name, main().getLength(i), score)    # getLength(i) returns the prefix length value of index i
+        score_management.add_new_line(df, model_name, getVariants(test_data)[i], score)
     df.to_csv("model_metrics.csv", index=False)
 
     df1 = pd.read_csv("model_metrics.csv")

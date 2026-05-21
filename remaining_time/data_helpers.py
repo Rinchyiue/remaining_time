@@ -11,3 +11,13 @@ def preprocess_data():
     log = filter_short_prefixes(log, REQUIRED_COLUMNS[0], min_length=2)
     display_columns = [REQUIRED_COLUMNS[0], REQUIRED_COLUMNS[1], REQUIRED_COLUMNS[2], "remaining_time"]
     return log[display_columns]
+
+# @para test_data:
+#       type: pandas.DataFrame
+#       content: the data frame for test data
+# @output:
+#       type: List of int
+#       content: the variants of prefix lengths in the given test_data
+# functionality: find out the list of  variants among prefix lengths
+def getVariants(test_data):
+    return sorted(test_data[REQUIRED_COLUMNS[0]].apply(len).unique())
