@@ -23,6 +23,7 @@ from joblib import dump
 from data_helpers import preprocess_data
 from data_splitter import time_based_split
 from model_evaluation import evaluate_model
+from config import REQUIRED_COLUMNS
 
 # model_1: ordinary least squares
 # assume that the main function can bring a dataframe which carries all precessed data
@@ -41,7 +42,7 @@ from model_evaluation import evaluate_model
 # Notice: x_train, y_train contains all training traces with all prefix lengths
 
 log = preprocess_data()
-train_data, val_data, test_data = time_based_split(log, 0, 2)
+train_data, val_data, test_data = time_based_split(log, REQUIRED_COLUMNS[0], REQUIRED_COLUMNS[2])
 
 x_train = train_data[:,:-1]                 # all columns except the last one
 y_train = train_data[:,-1]                  # only the last column
