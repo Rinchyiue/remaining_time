@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import main
 import score_management
-from data_helpers import getVariants
+from data_helpers import get_variants, get_log_with_length_index
 
 metrics = ["MAE","RMSE","MedAE","R2"]
 
@@ -163,12 +163,12 @@ def strict_compare(df1, df2):
 # functionality: evaluate the model and store the evaluation results into .csv files
 def evaluate_model(model, model_name, test_data, result_string):
     df = pd.read_csv("model_metrics.csv")
-    for i in range(len(getVariants(test_data))):
-        x_test = test_data[:,:-1]
-        y_test = test_data[:,-1]
+    for i in range(len(get_variants(test_data))):
+        x_test = get_log_with_length_index(test_data, i)[:,:-1]
+        y_test = get_log_with_length_index(test_data, i)[:,-1]
         y_pred  = model.predict(x_test)
         score = myScore(y_test,y_pred)
-        score_management.add_new_line(df, model_name, getVariants(test_data)[i], score)
+        score_management.add_new_line(df, model_name, get_variants(test_data)[i], score)
     df.to_csv("model_metrics.csv", index=False)
 
     df1 = pd.read_csv("model_metrics.csv")

@@ -19,5 +19,19 @@ def preprocess_data():
 #       type: List of int
 #       content: the variants of prefix lengths in the given test_data
 # functionality: find out the list of  variants among prefix lengths
-def getVariants(test_data):
+def get_variants(test_data):
     return sorted(test_data[REQUIRED_COLUMNS[0]].apply(len).unique())
+
+# @para test_data:
+#       type: pandas.DataFrame
+#       content: the data frame for test data
+# @para i:
+#       type: int
+#       content: the index within the prefix length variants list
+# @output:
+#       type: pandas.DataFrame
+#       content: the test_data with certain prefix length
+# functionality: split the test data according to the given index of prefix length
+def get_log_with_length_index(test_data, i):
+    required_length = get_variants(test_data)[i]
+    return test_data.groupby(REQUIRED_COLUMNS[0]).filter(lambda x: len(x) == required_length)
