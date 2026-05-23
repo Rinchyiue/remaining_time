@@ -2,8 +2,11 @@
 A module for feature engineering, including encoding from prefixes to feature vectors.
 """
 
+import pandas as pd
+
 def extract_static_case_attr(log, case_id_col, static_columns):
     """
+    Extracts static case attributes.
     :param log: pandas.DataFrame with the log
     :param case_id_col: String with the name of the case ID column
     :param static_columns: List of strings with the column names of the static case attributes
@@ -17,6 +20,7 @@ def extract_static_case_attr(log, case_id_col, static_columns):
 
 def extract_aggr_dynamic_features(log, case_id_col, timestamp_col, activity_col):
     """
+    Extracts aggregated dynamic features.
     :param log: pandas.DataFrame with the log
     :param case_id_col: String with the name of the case ID column
     :param timestamp_col: String with the name of the timestamp column
@@ -28,4 +32,17 @@ def extract_aggr_dynamic_features(log, case_id_col, timestamp_col, activity_col)
     log["elapsed_time"] = (log[timestamp_col] - case_start_timestamp).dt.total_seconds() / 3600.0
     log["activity_count"] = log.groupby([case_id_col, activity_col]).cumcount() + 1
 
+    return log
+
+def extract_temporal_features(log, timestamp_col):
+    """
+    Extracts temporal features.
+    :param log: pandas.DataFrame with the log
+    :param timestamp_col: String with the name of the timestamp column
+    :return: pandas.DataFrame with the log containing new columns for temporal features (one-hot encoding)
+    """
+    print("Extracting temporal features...")
+    log["day_of_week"] = log[timestamp_col].dt.dayofweek.astype(str)
+    log["hour"] = log[timestamp_col].dt.hour.astype(str)
+    log = pd.get_dummies(log, columns=["day_of_week", "hour"], dtype=int)
     return log
