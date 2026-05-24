@@ -2,9 +2,9 @@
 A module for the pipeline of the system.
 """
 from config import REQUIRED_COLUMNS
-from data_loader import load_data, validate_columns, sort_cases_by_timestamp
+from data_loader import load_data, validate_columns, sort_cases_by_timestamp, filter_completed_cases
 from prefix_extractor import compute_remaining_time, filter_short_prefixes
-
+from data_splitter import time_based_split
 
 def main():
     print("--- Starting pipeline for remaining time ---")
@@ -18,11 +18,17 @@ def main():
     # 3. Sorting of the cases by timestamp
     log = sort_cases_by_timestamp(log, REQUIRED_COLUMNS[0], REQUIRED_COLUMNS[2])
 
-    # 4. Computing remaining time of each prefix of a case within a new column
+    # 4. Filtering cases that are not finished
+    log = filter_completed_cases(log)
+
+    # 5. Computing remaining time of each prefix of a case within a new column
     log = compute_remaining_time(log, REQUIRED_COLUMNS[0], REQUIRED_COLUMNS[2])
 
-    # 5. Filtering out cases with less than min_length events
+    # 6. Filtering out cases with less than min_length events
     log = filter_short_prefixes(log, REQUIRED_COLUMNS[0], min_length=2)
+
+    # 7. Performing time-based data split (70% training, 15% validation and testing)
+    train_log, val_log, test_log = time_based_split(log, REQUIRED_COLUMNS[0], REQUIRED_COLUMNS[2])
 
     # display of essential columns for testing purposes
     display_columns = [REQUIRED_COLUMNS[0], REQUIRED_COLUMNS[1], REQUIRED_COLUMNS[2], "remaining_time"]

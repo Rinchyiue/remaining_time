@@ -17,7 +17,7 @@ def compute_remaining_time(log, case_id_col, timestamp_col):
     # adds case_end_timestamp to each group of a case as a new column
     log["case_end_timestamp"] = log.groupby(case_id_col)[timestamp_col].transform("max")
     # computes remaining_time column as case_end_timestamp - timestamp of last event in seconds
-    log[TARGET_COLUMN] = (log["case_end_timestamp"] - log[timestamp_col]).dt.total_seconds()
+    log[TARGET_COLUMN] = (log["case_end_timestamp"] - log[timestamp_col]).dt.total_seconds() / 3600.0
     # removes case_end_timestamp column
     log.drop(columns=["case_end_timestamp"], inplace=True)
     print("Remaining time for each prefix has been computed successfully.")

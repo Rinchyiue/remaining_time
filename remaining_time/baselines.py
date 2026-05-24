@@ -10,7 +10,7 @@ def mean_predictor(train_log, test_log, target_col="remaining_time"):
     :param train_log: pandas.DataFrame with the training log
     :param test_log: pandas.DataFrame with the test log (or validation log if wanted)
     :param target_col: String with the name of the remaining time column
-    :return: Tuple of (pandas.DataFrame with predictions, Float with MAE)
+    :return: Tuple of (pandas.DataFrame with predictions, Array of Scores)
     """
     print("--- Running Mean Baseline Predictor ---")
 
