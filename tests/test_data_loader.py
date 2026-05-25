@@ -1,6 +1,11 @@
-from remaining_time.remaining_time.data_loader import validate_columns
+import sys
+from pathlib import Path
+
+sys.path.append(str(Path(__file__).resolve().parents[1] / "remaining_time"))
+
 import pandas as pd
 import pytest
+from data_loader import validate_columns
 
 
 def test_validate_columns_success():
