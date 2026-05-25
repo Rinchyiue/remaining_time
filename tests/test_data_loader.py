@@ -1,4 +1,4 @@
-from remainin_time.remaining_time.data_loader import validate_columns
+from remaining_time.remaining_time.data_loader import validate_columns
 import pandas as pd
 import pytest
 
