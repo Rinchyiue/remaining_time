@@ -21,7 +21,7 @@ def mean_predictor(train_log, target_col="remaining_time"):
 
 # @para: test_log:
 #       type: pandas.DataFrame
-#       content: the test data
+#       content: the whole test data (feature with target)
 # functionality: initialize model_metrics.csv and model_scores.csv with baseline model data
 def save_baseline(test_log, mean_remaining_time):
     if not isinstance(test_log, pd.DataFrame):
@@ -35,11 +35,12 @@ def save_baseline(test_log, mean_remaining_time):
     df1 = pd.DataFrame(data_model_scores)
     df1.to_csv("model_scores.csv", index=False)
     print("model_scores.csv successfully created. ")
+    print(pd.read_csv("model_scores.csv").to_string())       # only for testing purpose
 
     df2 = pd.DataFrame(columns=['name', 'prefix_length', 'MAE', 'RMSE', 'MedAE', 'R2'])
     res_list = []
     for i in range(len(get_variants(test_log))):
-        y_test = get_log_with_length_index(test_log, i)[:,-1]
+        y_test = get_log_with_length_index(test_log, i).iloc[:,-1]
         y_pred = np.full(y_test.shape, mean_remaining_time)
         score = myScore(y_test, y_pred)
         row = {
@@ -54,3 +55,4 @@ def save_baseline(test_log, mean_remaining_time):
     df2 = pd.DataFrame(res_list)
     df2.to_csv("model_metrics.csv", index=False)
     print("model_metrics.csv successfully created. ")
+    print(pd.read_csv("model_metrics.csv").to_string())      # only for testing purpose

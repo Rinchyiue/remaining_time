@@ -1,0 +1,2 @@
+name,best,abs_super,details
+baseline,Y,0,This model predicts every input simply as the mean value of time of the training data. 

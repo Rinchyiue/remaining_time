@@ -15,12 +15,14 @@ from feature_engineering import extract_static_case_attr, extract_aggr_dynamic_f
 #       type: 2 arity tuple of DataFrame
 #       content: the first parameter is the feature log, the second is the target log
 # functionality: split the log into a feature log and a numeric target log
-def numeric_conversion(log, column_name):
+def numeric_split(log, column_name):
     if not isinstance(log, pd.DataFrame):
         raise TypeError("The given log is not a data frame. ")
     if column_name not in log.columns:
         raise KeyError("No such column in the given log. ")
-    return log[column_name], log.drop(columns=[column_name]).select_dtypes(include=["number"])
+    target = log[[column_name]]
+    feature = log.drop(columns=[column_name]).select_dtypes(include=["number"])
+    return feature, target
 
 # lazy caller copied from @Linas, this part is only designed for development usage, it'll be later merged into main.py
 def preprocess_data():
@@ -73,9 +75,10 @@ def get_variants(test_data):
     if not isinstance(test_data, pd.DataFrame):
         raise TypeError("The given log is not a data frame. ")
     try:
-        return sorted(test_data[REQUIRED_COLUMNS[0]].apply(len).unique())
+        case_lengths = test_data.groupby(REQUIRED_COLUMNS[0]).size()
+        return sorted(case_lengths.unique())
     except KeyError:
-        raise KeyError("The column 0 does not exist. ")
+        raise KeyError(f"The column {REQUIRED_COLUMNS[0]} does not exist. ")
 
 # @para test_data:
 #       type: pandas.DataFrame
