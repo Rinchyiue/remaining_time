@@ -1,11 +1,8 @@
-# Add the project module path so pytest can import files
-# from the remaining_time package correctly
 import sys
 from pathlib import Path
 
 sys.path.append(str(Path(__file__).resolve().parents[1] / "remaining_time"))
 
-# Import required libraries and functions to test
 import numpy as np
 from model_evaluation import myScore, validScore, loose_compare
 
