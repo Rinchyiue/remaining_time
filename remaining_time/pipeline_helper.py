@@ -1,4 +1,4 @@
-import pandas as pd
+from checker import df_type_check, column_inclusion_check
 from config import REQUIRED_COLUMNS, COLS_ENCODE, NUM_COLS_SCALE
 from data_loader import load_data, validate_columns, sort_cases_by_timestamp, filter_completed_cases
 from prefix_extractor import compute_remaining_time, filter_short_prefixes
@@ -16,10 +16,8 @@ from feature_engineering import extract_static_case_attr, extract_aggr_dynamic_f
 #       content: the first parameter is the feature log, the second is the target log
 # functionality: split the log into a feature log and a numeric target log
 def numeric_split(log, column_name):
-    if not isinstance(log, pd.DataFrame):
-        raise TypeError("The given log is not a data frame. ")
-    if column_name not in log.columns:
-        raise KeyError("No such column in the given log. ")
+    df_type_check(log)
+    column_inclusion_check(log, column_name)
     target = log[[column_name]]
     feature = log.drop(columns=[column_name]).select_dtypes(include=["number"])
     return feature, target
@@ -72,8 +70,7 @@ def preprocess_data():
 #       content: the variants of prefix lengths in the given test_data
 # functionality: find out the list of  variants among prefix lengths
 def get_variants(test_data):
-    if not isinstance(test_data, pd.DataFrame):
-        raise TypeError("The given log is not a data frame. ")
+    df_type_check(test_data)
     try:
         case_lengths = test_data.groupby(REQUIRED_COLUMNS[0]).size()
         return sorted(case_lengths.unique())
@@ -91,8 +88,7 @@ def get_variants(test_data):
 #       content: the test_data with certain prefix length
 # functionality: split the test data according to the given index of prefix length
 def get_log_with_length_index(test_data, i):
-    if not isinstance(test_data, pd.DataFrame):
-        raise TypeError("The given log is not a data frame. ")
+    df_type_check(test_data)
     try:
         required_length = get_variants(test_data)[i]
         return test_data.groupby(REQUIRED_COLUMNS[0]).filter(lambda x: len(x) == required_length)

@@ -4,6 +4,7 @@ import pandas as pd
 import main
 import score_management
 from pipeline_helper import get_variants, get_log_with_length_index
+from checker import df_type_check, np_ndarray_type_check
 
 metrics = ["MAE","RMSE","MedAE","R2"]
 
@@ -18,6 +19,8 @@ metrics = ["MAE","RMSE","MedAE","R2"]
 #       content: a list which consists of MAE, RMSE, MedAE and R2-Score
 # functionality: calculate the metrics of given true and prediction values
 def myScore(a_true, a_pred):
+    np_ndarray_type_check(a_true)
+    np_ndarray_type_check(a_pred)
     return np.array([mean_absolute_error(a_true,a_pred), root_mean_squared_error(a_true,a_pred),
             median_absolute_error(a_true,a_pred), r2_score(a_true,a_pred)])
 
@@ -30,6 +33,7 @@ def myScore(a_true, a_pred):
 # functionality: make a naive index which ranges in (0,1] with the property "the higher, the better"
 # notice: we don't consider one of MAE, RMSE , or MedAe can reach infinity
 def validScore(metrics_list):
+    np_ndarray_type_check(metrics_list)
     return np.average([1 / (metrics_list[i] + 1) for i in range(3)] + [metrics_list[3]])            # 1 is added to the divisor to keep it not equal 0
 
 # @para score1, score2:
@@ -40,6 +44,8 @@ def validScore(metrics_list):
 #       content: the partial Super value from the second model against the first model
 # functionality: this is a function for Super relation between two models with identical prefix length, without respect to frequency
 def singleScore(score1,score2):
+    np_ndarray_type_check(score1)
+    np_ndarray_type_check(score2)
     return (sum(.25 * (score1[i] - score2[i]) / score1[i] for i in range(3)) + 0.25 * (score2[3] - score1[3]) / score2[3])
 
 # @para df:
@@ -53,6 +59,7 @@ def singleScore(score1,score2):
 #       content: the relative super value
 # functionality: calculate the relative super value of the given new_model against old_model
 def general_super(df, old_model, new_model):
+    df_type_check(df)
     res = 0
     for i in range(main().getVariance()):
         p_len = main().getLength(i)
@@ -71,6 +78,7 @@ def general_super(df, old_model, new_model):
 #       content: the absolute super value
 # functionality: calculate the absolute super value of the given model (against baseline)
 def abs_super(df, model):
+    df_type_check(df)
     return general_super(df, "baseline", model)
 
 # @para df1:
@@ -88,6 +96,8 @@ def abs_super(df, model):
 # functionality: calculate the relative super value of the given model against (a list of) current "best" models
 #                and store them with the compared models
 def rel_super(df1, df2, model):
+    df_type_check(df1)
+    df_type_check(df2)
     res = []
     for name in score_management.getBest(df2):
         res.append((name, general_super(df1, name, model)))
@@ -135,6 +145,9 @@ def loose_compare(model, rel_super_list):
 #               i.e. the relative super value of the tested model against compared model should be not negative in order to have chance
 #               to be selected
 def strict_compare(df1, df2):
+    df_type_check(df1)
+    df_type_check(df2)
+    print(" --- start strict compare --- ")
     res = []
     best_list = score_management.getBest(df2)
     while len(best_list) > 1:
@@ -147,6 +160,7 @@ def strict_compare(df1, df2):
     for name in score_management.getBest(df2):
         if name != best_list[0]:
             res.append((name, 'D'))
+    print(" --- strict compare ends --- ")
     return res
 
 # @para model:
@@ -162,6 +176,7 @@ def strict_compare(df1, df2):
 #       content: extra details for the model to be stored
 # functionality: evaluate the model and store the evaluation results into .csv files
 def evaluate_model(model, model_name, test_data, result_string):
+    df_type_check(test_data)
     print(" --- start evaluating model --- ")
     df = pd.read_csv("model_metrics.csv")
     new_rows = []

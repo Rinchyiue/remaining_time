@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 from model_evaluation import myScore
 from pipeline_helper import get_log_with_length_index, get_variants
+from checker import df_type_check, column_inclusion_check
 
 def mean_predictor(train_log, target_col="remaining_time"):
     """
@@ -13,8 +14,9 @@ def mean_predictor(train_log, target_col="remaining_time"):
     :param train_log: pandas.DataFrame with the training logs
     :param target_col: String with the name of the remaining time column
     """
+    df_type_check(train_log)
+    column_inclusion_check(train_log, target_col)
     print("--- Running Mean Baseline Predictor ---")
-
     mean_remaining_time = train_log[target_col].mean()
     print(f"The mean remaining time of all training prefixes is {mean_remaining_time:.4f} hours.")
     return mean_remaining_time
@@ -24,8 +26,7 @@ def mean_predictor(train_log, target_col="remaining_time"):
 #       content: the whole test data (feature with target)
 # functionality: initialize model_metrics.csv and model_scores.csv with baseline model data
 def save_baseline(test_log, mean_remaining_time):
-    if not isinstance(test_log, pd.DataFrame):
-        raise TypeError("The given log is not a data frame. ")
+    df_type_check(test_log)
     data_model_scores = {
         'name':['baseline'],
         'best':['Y'],
@@ -34,8 +35,7 @@ def save_baseline(test_log, mean_remaining_time):
     }
     df1 = pd.DataFrame(data_model_scores)
     df1.to_csv("model_scores.csv", index=False)
-    print("model_scores.csv successfully created. ")
-    print(pd.read_csv("model_scores.csv").to_string())       # only for testing purpose
+    print(" --- model_scores.csv successfully created --- ")
 
     df2 = pd.DataFrame(columns=['name', 'prefix_length', 'MAE', 'RMSE', 'MedAE', 'R2'])
     res_list = []
@@ -54,5 +54,4 @@ def save_baseline(test_log, mean_remaining_time):
         res_list.append(row)
     df2 = pd.DataFrame(res_list)
     df2.to_csv("model_metrics.csv", index=False)
-    print("model_metrics.csv successfully created. ")
-    print(pd.read_csv("model_metrics.csv").to_string())      # only for testing purpose
+    print(" --- model_metrics.csv successfully created --- ")
