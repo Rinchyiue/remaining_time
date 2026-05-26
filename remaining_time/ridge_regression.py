@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 from sklearn import linear_model
 from joblib import dump
-from data_helpers import preprocess_data
+from pipeline_helper import preprocess_data
 from data_splitter import time_based_split
 from model_evaluation import myScore, validScore, evaluate_model
 from config import REQUIRED_COLUMNS
