@@ -162,6 +162,7 @@ def strict_compare(df1, df2):
 #       content: extra details for the model to be stored
 # functionality: evaluate the model and store the evaluation results into .csv files
 def evaluate_model(model, model_name, test_data, result_string):
+    print(" --- start evaluating model --- ")
     df = pd.read_csv("model_metrics.csv")
     new_rows = []
     variants = get_variants(test_data)
@@ -183,13 +184,18 @@ def evaluate_model(model, model_name, test_data, result_string):
             "MedAE": score[2],
             "R2": score[3]
         })
-    df = score_management.add_multiple_lines(df, new_rows)
+    df = score_management.add_list_of_lines(df, new_rows)
     df.to_csv("model_metrics.csv", index=False)
+    print(" --- model metrics successfully stored --- ")
 
     df1 = pd.read_csv("model_metrics.csv")
     df2 = pd.read_csv("model_scores.csv")
     abs_super = abs_super(df1, df2, model_name)                     # the absolute super value calculated against baseline
     rel_super = rel_super(df1, df2, model_name)                     # a list of tuples of compared current 'best' model and relative super value calculated
     update_info = loose_compare(model_name, rel_super)              # the update/setting info
+
+    print(" --- loose compare done --- ")
+
     score_management.update_and_set(df2, update_info, abs_super, result_string)
     df2.to_csv("model_scores.csv", index=False)
+    print(" --- model score successfully stored and updated --- ")
