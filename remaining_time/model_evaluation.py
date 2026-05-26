@@ -132,7 +132,7 @@ def loose_compare(model, rel_super_list):
 #       type: list (list of tuples)
 #       content: a list of tuples consist of compared model name and their status change ('D' | 'R')
 # functionality: find out the only "best" model among the list of "best" models, with strict distinction of relative super value with >=
-#               i.e. the relative super value of the tested model against compared model should be not negative in order to have chance 
+#               i.e. the relative super value of the tested model against compared model should be not negative in order to have chance
 #               to be selected
 def strict_compare(df1, df2):
     res = []
