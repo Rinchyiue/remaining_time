@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import main
 import score_management
-from data_helpers import get_variants, get_log_with_length_index
+from pipeline_helper import get_variants, get_log_with_length_index
 
 metrics = ["MAE","RMSE","MedAE","R2"]
 

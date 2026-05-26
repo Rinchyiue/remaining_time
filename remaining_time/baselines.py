@@ -15,7 +15,7 @@ def mean_predictor(train_log, test_log, target_col="remaining_time"):
     print("--- Running Mean Baseline Predictor ---")
 
     mean_remaining_time = train_log[target_col].mean()
-    print(f"The mean remaining time of all training prefixes is {mean_remaining_time:.2f} hours.")
+    print(f"The mean remaining time of all training prefixes is {mean_remaining_time:.4f} hours.")
 
     test_log_prediction = test_log.copy()
     test_log_prediction["prediction"] = mean_remaining_time
@@ -24,9 +24,9 @@ def mean_predictor(train_log, test_log, target_col="remaining_time"):
     mae, rmse, medae, r2 = metrics_array
 
     print(f"Baseline Results:")
-    print(f"  MAE:   {mae:.2f} hours")
-    print(f"  RMSE:  {rmse:.2f} hours")
-    print(f"  MedAE: {medae:.2f} hours")
+    print(f"  MAE:   {mae:.4f} hours")
+    print(f"  RMSE:  {rmse:.4f} hours")
+    print(f"  MedAE: {medae:.4f} hours")
     print(f"  R2:    {r2:.4f}")
 
     return test_log_prediction, metrics_array
