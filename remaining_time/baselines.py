@@ -2,41 +2,55 @@
 A module containing baseline models to benchmark more advanced models.
 """
 
+import numpy as np
+import pandas as pd
 from model_evaluation import myScore
+from pipeline_helper import get_log_with_length_index, get_variants
 
-def mean_predictor(train_log, test_log, target_col="remaining_time"):
+def mean_predictor(train_log, target_col="remaining_time"):
     """
     Predicts mean remaining time of all training prefixes.
-    :param train_log: pandas.DataFrame with the training log
-    :param test_log: pandas.DataFrame with the test log (or validation log if wanted)
+    :param train_log: pandas.DataFrame with the training logs
     :param target_col: String with the name of the remaining time column
     """
     print("--- Running Mean Baseline Predictor ---")
 
     mean_remaining_time = train_log[target_col].mean()
     print(f"The mean remaining time of all training prefixes is {mean_remaining_time:.4f} hours.")
+    return mean_remaining_time
 
-    test_log_prediction = test_log.copy()
-    test_log_prediction["prediction"] = mean_remaining_time
-
-    metrics_array = myScore(test_log_prediction[target_col], test_log_prediction["prediction"])
-    mae, rmse, medae, r2 = metrics_array
-
-    print(f"Baseline Results:")
-    print(f"  MAE:   {mae:.4f} hours")
-    print(f"  RMSE:  {rmse:.4f} hours")
-    print(f"  MedAE: {medae:.4f} hours")
-    print(f"  R2:    {r2:.4f}")
-    return test_log_prediction, metrics_array
-
+# @para: test_log:
+#       type: pandas.DataFrame
+#       content: the test data
 # functionality: initialize model_metrics.csv and model_scores.csv with baseline model data
-def save_baseline(test_log_prediction, metrics_array, test_log):
+def save_baseline(test_log, mean_remaining_time):
+    if not isinstance(test_log, pd.DataFrame):
+        raise TypeError("The given log is not a data frame. ")
     data_model_scores = {
         'name':['baseline'],
         'best':['Y'],
         'abs_super':[0],                    # according to the definition of abs_super, identical inputs always result in 0
         'details':['This model predicts every input simply as the mean value of time of the training data. ']
     }
-    data_model_metrics = {
-        
-    }
+    df1 = pd.DataFrame(data_model_scores)
+    df1.to_csv("model_scores.csv", index=False)
+    print("model_scores.csv successfully created. ")
+
+    df2 = pd.DataFrame(columns=['name', 'prefix_length', 'MAE', 'RMSE', 'MedAE', 'R2'])
+    res_list = []
+    for i in range(len(get_variants(test_log))):
+        y_test = get_log_with_length_index(test_log, i)[:,-1]
+        y_pred = np.full(y_test.shape, mean_remaining_time)
+        score = myScore(y_test, y_pred)
+        row = {
+            'name':'baseline',
+            'prefix_length': get_variants(test_log)[i],
+            'MAE':score[0],
+            'RMSE':score[1],
+            'MedAE':score[2],
+            'R2':score[3]
+        }
+        res_list.append(row)
+    df2 = pd.DataFrame(res_list)
+    df2.to_csv("model_metrics.csv", index=False)
+    print("model_metrics.csv successfully created. ")
