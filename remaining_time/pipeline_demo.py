@@ -1,5 +1,4 @@
 # WARNING: this is not a pipeline yet, only for testing purpose
-import pandas as pd
 from pipeline_helper import numeric_split, preprocess_data
 from baselines import mean_predictor, save_baseline
 
