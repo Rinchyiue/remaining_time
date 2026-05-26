@@ -163,12 +163,27 @@ def strict_compare(df1, df2):
 # functionality: evaluate the model and store the evaluation results into .csv files
 def evaluate_model(model, model_name, test_data, result_string):
     df = pd.read_csv("model_metrics.csv")
-    for i in range(len(get_variants(test_data))):
-        x_test = get_log_with_length_index(test_data, i)[:,:-1]
-        y_test = get_log_with_length_index(test_data, i)[:,-1]
-        y_pred  = model.predict(x_test)
-        score = myScore(y_test,y_pred)
-        score_management.add_new_line(df, model_name, get_variants(test_data)[i], score)
+    new_rows = []
+    variants = get_variants(test_data)
+    
+    for i in range(len(variants)):
+        variant = variants[i]
+        log_data = get_log_with_length_index(test_data, i)
+        
+        x_test = log_data.iloc[:, :-1]
+        y_test = log_data.iloc[:, -1]
+        y_pred = model.predict(x_test)
+        score = myScore(y_test, y_pred)
+        
+        new_rows.append({
+            "name": model_name,
+            "prefix_length": variant,
+            "MAE": score[0],
+            "RMSE": score[1],
+            "MedAE": score[2],
+            "R2": score[3]
+        })
+    df = score_management.add_multiple_lines(df, new_rows)
     df.to_csv("model_metrics.csv", index=False)
 
     df1 = pd.read_csv("model_metrics.csv")
