@@ -96,3 +96,21 @@ def get_log_with_length_index(test_data, i):
         raise IndexError(f"Index i is out of bound. ")
     except KeyError:
         raise KeyError("The column 0 does not exist. ")
+
+# @para test_data:
+#       type: pandas.DataFrame
+#       content: the data frame for test data
+# @para i:
+#       type: int
+#       content: the index within the prefix length variants list
+# @output:
+#       type: np.float64
+#       content: the percentage of cases with prefix length == i
+# functionality: get the percentage of cases with prefix length equals the given i
+def get_length_percentage(test_data, i):
+    df_type_check(test_data)
+    case_lengths = test_data.groupby(REQUIRED_COLUMNS[0]).size()
+    count_i = (case_lengths == i).sum()
+    total_cases = len(case_lengths)
+    percentage = (count_i / total_cases) * 100
+    return percentage

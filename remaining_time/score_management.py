@@ -51,7 +51,8 @@ def update_and_set(df, update_info, abs_super, details):
     df_type_check(df)
     update(df, update_info)
     nl= pd.DataFrame([{"name": update_info[-1][0], "best": update_info[-1][1], "abs_super": abs_super, "details": details}])        # update_info[-1] is a tuple where information of model to be set is stored
-    df = pd.concat([df, nl], ignore_index=True)
+    df_neo = pd.concat([df, nl], ignore_index=True)
+    return df_neo
 
 # @para df:
 #       type: pandas.DataFrame
@@ -63,5 +64,6 @@ def update_and_set(df, update_info, abs_super, details):
 def add_list_of_lines(df, list_of_rows):
     df_type_check(df)
     row_df = pd.DataFrame(list_of_rows)
-    df = pd.concat(df, row_df)
-    df = df.sort_values(by='prefix_length', kind='stable', ignore_index=True)
+    df_neo = pd.concat([df, row_df], ignore_index=True)
+    df_neo = df_neo.sort_values(by='prefix_length', kind='stable', ignore_index=True)
+    return df_neo
