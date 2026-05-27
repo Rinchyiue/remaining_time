@@ -6,25 +6,16 @@ import pandas as pd
 import numpy as np
 from sklearn import linear_model
 from joblib import dump
-from pipeline_helper import preprocess_data
-from data_splitter import time_based_split
+from pipeline_helper import preprocess_data, numeric_split
 from model_evaluation import myScore, validScore, evaluate_model
-from config import REQUIRED_COLUMNS
 
-# part_1: training
-# use the training set
-# @para x_train:
-#       type:       numpy.ndarray (two-dimensional)
-#       content:    a matrix whose rows represent respectively a case (activity trace)
-# @para y_train:
-#       type:       numpy.ndarray
-#       content:    a list of target values (remaining time) of each case
-# Notice: x_train, y_train contains all training traces with all prefix lengths
-log = preprocess_data()
-train_data, val_data, test_data = time_based_split(log, REQUIRED_COLUMNS[0], REQUIRED_COLUMNS[2])
+# part_1: preprocess data
+train_data, val_data, test_data = preprocess_data()
+x_train, y_train = numeric_split(train_data, "remaining_time")
+x_valid, y_valid = numeric_split(val_data, "remaining_time")
+x_test, y_test = numeric_split(test_data, "remaining_time")
 
-x_train = train_data[:,:-1]                 # all columns except the last one
-y_train = train_data[:,-1]                  # only the last column
+
 
 alphas = [0.0001, 0.001, 0.01, 0.1, 1, 10, 100, 1000]           # a set of alphas to try
 models = [linear_model.Ridge(alpha=a) for a in alphas]          # a set of corresponding models

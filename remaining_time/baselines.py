@@ -42,7 +42,7 @@ def save_baseline(test_log, mean_remaining_time):
     for i in range(len(get_variants(test_log))):
         y_test = get_log_with_length_index(test_log, i).iloc[:,-1]
         y_pred = np.full(y_test.shape, mean_remaining_time)
-        score = myScore(y_test, y_pred)
+        score = myScore(pd.DataFrame(y_test), pd.DataFrame(y_pred))
         row = {
             'name':'baseline',
             'prefix_length': get_variants(test_log)[i],
