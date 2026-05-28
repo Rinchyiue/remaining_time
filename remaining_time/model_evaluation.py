@@ -32,7 +32,6 @@ def myScore(a_true, a_pred):
 # functionality: make a naive index which ranges in (0,1] with the property "the higher, the better"
 # notice: we don't consider one of MAE, RMSE , or MedAe can reach infinity
 def validScore(metrics_list):
-    df_type_check(metrics_list)
     temp = metrics_list[3]
     if temp < 0:                        # R2 score can be negative
         temp = 1 / ((-1)*temp + 1)
