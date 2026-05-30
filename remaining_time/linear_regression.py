@@ -31,7 +31,6 @@ print(" --- training completed --- ")
 # part_3: evaluate the model
 # use the test set
 # iterate over prefix lengths and store metrics respectively in rows of scores
-print(" --- start evaluating model --- ")
 evaluate_model(reg_ols, "ols", test_data, result_string)
 print(" --- model evaluation done --- ")
 

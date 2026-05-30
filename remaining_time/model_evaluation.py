@@ -173,7 +173,7 @@ def strict_compare(df1, df2):
     return res
 
 # @para model:
-#       content: the model to be evaluated
+#       content: the model to be evaluated (pipeline)
 # @para model_name:
 #       type: str
 #       content: the name of the model given
