@@ -3,6 +3,8 @@ from config import REQUIRED_COLUMNS, COLS_ENCODE, NUM_COLS_SCALE
 from data_loader import load_data, validate_columns, sort_cases_by_timestamp, filter_completed_cases
 from prefix_extractor import compute_remaining_time, filter_short_prefixes
 from data_splitter import time_based_split
+from sklearn.preprocessing import FunctionTransformer, StandardScaler, OneHotEncoder
+from sklearn.compose import ColumnTransformer
 from feature_engineering import extract_static_case_attr, extract_aggr_dynamic_features, extract_temporal_features, encode_categorical_features, scale_numeric_features
 
 # @para log:
@@ -114,3 +116,18 @@ def get_length_percentage(test_data, i):
     total_cases = len(case_lengths)
     percentage = (count_i / total_cases) * 100
     return percentage
+
+# part_2: preprocess functions
+# step 1: sort
+def n_sort(log):
+    processed_log = sort_cases_by_timestamp(log, REQUIRED_COLUMNS[0], REQUIRED_COLUMNS[2])
+    return processed_log
+
+new_sort = FunctionTransformer(n_sort)
+
+# step 2: compute and add remaining time column
+def compute_remain(log):
+    processed_log = compute_remaining_time(log, REQUIRED_COLUMNS[0], REQUIRED_COLUMNS[2])
+    return processed_log
+
+comp_remain = FunctionTransformer(compute_remain)

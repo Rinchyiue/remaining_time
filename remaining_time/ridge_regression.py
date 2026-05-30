@@ -7,7 +7,6 @@ import numpy as np
 from sklearn.linear_model import Ridge
 from sklearn.model_selection import GridSearchCV, PredefinedSplit
 from sklearn.metrics import make_scorer
-from sklearn.pipeline import make_pipeline
 from joblib import dump
 from pipeline_helper import preprocess_data, numeric_split
 from model_evaluation import myScore, validScore, evaluate_model

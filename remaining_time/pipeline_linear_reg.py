@@ -9,8 +9,8 @@ from joblib import dump
 from pipeline_helper import preprocess_data, numeric_split
 from model_evaluation import evaluate_model
 
-# --- part_1: preprocess data ---
-print(" --- start preprocessing data --- ")
+# --- part_1: get data ---
+print(" --- start getting data --- ")
 train_data, val_data, test_data = preprocess_data()
 _, y_train = numeric_split(train_data, "remaining_time")
 
