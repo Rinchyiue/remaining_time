@@ -3,6 +3,7 @@
 
 import numpy as np
 from sklearn.linear_model import LinearRegression
+from sklearn.pipeline import make_pipeline
 from joblib import dump
 from pipeline_helper import preprocess_data, numeric_split
 from model_evaluation import evaluate_model
@@ -17,7 +18,8 @@ print(" --- data prepared --- ")
 # part_2: train model
 print(" --- start training linear regression model --- ")
 reg_ols = LinearRegression()
-reg_ols.fit(x_train, y_train)
+pipe = make_pipeline(reg_ols)
+pipe.fit(x_train, y_train)
 
 # part_2: results
 coef = reg_ols.coef_
@@ -35,5 +37,5 @@ print(" --- model evaluation done --- ")
 
 # part_4: save model
 print(" --- start saving model --- ")
-dump(reg_ols, 'reg_ols.pkl')
+dump(pipe, 'reg_ols.pkl')
 print(" --- model saved --- ")

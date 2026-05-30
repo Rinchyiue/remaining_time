@@ -7,6 +7,7 @@ import numpy as np
 from sklearn.linear_model import Ridge
 from sklearn.model_selection import GridSearchCV, PredefinedSplit
 from sklearn.metrics import make_scorer
+from sklearn.pipeline import make_pipeline
 from joblib import dump
 from pipeline_helper import preprocess_data, numeric_split
 from model_evaluation import myScore, validScore, evaluate_model
@@ -38,10 +39,10 @@ print(" --- data prepared --- ")
 
 # part_2: set up GridSearchCV
 print(" --- start grid search cross validation --- ")
-estimator = Ridge()
+pipe = make_pipeline(Ridge())
 param_grid = [{'alpha':[0.0001, 0.001, 0.01, 0.1, 1, 10, 100, 1000]}]
 grid_search = GridSearchCV(
-    estimator=estimator,
+    estimator=pipe,
     param_grid=param_grid,
     cv=split,
     scoring=score
