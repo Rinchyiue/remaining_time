@@ -39,10 +39,10 @@ print(" --- data prepared --- ")
 
 # part_2: set up GridSearchCV
 print(" --- start grid search cross validation --- ")
-pipe = make_pipeline(Ridge())
+model = Ridge()
 param_grid = [{'alpha':[0.0001, 0.001, 0.01, 0.1, 1, 10, 100, 1000]}]
 grid_search = GridSearchCV(
-    estimator=pipe,
+    estimator=model,
     param_grid=param_grid,
     cv=split,
     scoring=score
@@ -65,7 +65,6 @@ result_string = f"alpha: {best_alpha}, coefficient: {coef_string}, intercept: {i
 print(" --- retrain completed --- ")
 
 # part_5: evaluate the model
-print(" --- evaluating model on test set --- ")
 evaluate_model(cur_model, "ridge", test_data, result_string)
 print(" --- evaluation done --- ")
 
