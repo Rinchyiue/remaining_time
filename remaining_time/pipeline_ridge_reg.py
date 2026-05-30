@@ -8,7 +8,7 @@ from sklearn.linear_model import Ridge
 from sklearn.model_selection import GridSearchCV, PredefinedSplit
 from sklearn.metrics import make_scorer
 from joblib import dump
-from pipeline_helper import preprocess_data, numeric_split
+from pipeline_helper import preprocess_data, numeric_split, get_checked_prefix
 from model_evaluation import myScore, validScore, evaluate_model
 from sklearn.pipeline import Pipeline
 
@@ -34,6 +34,7 @@ train_indices = np.full(x_train.shape[0], -1)
 val_indices = np.full(x_valid.shape[0], 0)
 test_fold = np.concatenate([train_indices, val_indices])
 split = PredefinedSplit(test_fold)
+
 print(" --- data prepared --- ")
 
 # part_2: set up GridSearchCV
