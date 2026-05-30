@@ -10,6 +10,7 @@ from sklearn.metrics import make_scorer
 from joblib import dump
 from pipeline_helper import preprocess_data, numeric_split
 from model_evaluation import myScore, validScore, evaluate_model
+from sklearn.pipeline import Pipeline
 
 # part_0: make the score
 print(" --- start making score --- ")
@@ -38,35 +39,36 @@ print(" --- data prepared --- ")
 # part_2: set up GridSearchCV
 print(" --- start grid search cross validation --- ")
 model = Ridge()
-param_grid = [{'alpha':[0.0001, 0.001, 0.01, 0.1, 1, 10, 100, 1000]}]
+pipe = Pipeline([('model', model)])
+param_grid = [{'model__alpha':[0.0001, 0.001, 0.01, 0.1, 1, 10, 100, 1000]}]
 grid_search = GridSearchCV(
-    estimator=model,
+    estimator=pipe,
     param_grid=param_grid,
     cv=split,
     scoring=score
 )
 
 grid_search.fit(x_combined, y_combined)
-best_alpha = grid_search.best_params_['alpha']
+best_alpha = grid_search.best_params_['model__alpha']
 print(f"Best alpha found: {best_alpha}")
 print(" --- grid search cross validation done --- ")
 
 # part_3: retrain the model with the found best alpha
 print(" --- start retraining --- ")
-cur_model = Ridge(alpha=best_alpha)
-cur_model.fit(x_combined, y_combined)
+pipe.set_params(model__alpha = best_alpha)
+pipe.fit(x_combined, y_combined)
 
-coef = cur_model.coef_
+coef = pipe.named_steps['model'].coef_
 coef_string = np.array2string(coef, precision=4, separator=', ')
-incp = cur_model.intercept_
+incp = pipe.named_steps['model'].intercept_
 result_string = f"alpha: {best_alpha}, coefficient: {coef_string}, intercept: {incp}"
 print(" --- retrain completed --- ")
 
 # part_5: evaluate the model
-evaluate_model(cur_model, "ridge", test_data, result_string)
+evaluate_model(pipe, "pipe_ridge", test_data, result_string)
 print(" --- evaluation done --- ")
 
 # part_6: save model
 print(" --- saving model --- ")
-dump(cur_model, 'ridge.pkl')
+dump(pipe, 'pipe_ridge.pkl')
 print(" --- model saved --- ")

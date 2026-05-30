@@ -12,7 +12,6 @@ from model_evaluation import evaluate_model
 print( " --- start preprocessing data --- ")
 train_data, val_data, test_data = preprocess_data()
 x_train, y_train = numeric_split(train_data, "remaining_time")
-x_test, y_test = numeric_split(test_data, "remaining_time")
 print(" --- data prepared --- ")
 
 # part_2: train model
