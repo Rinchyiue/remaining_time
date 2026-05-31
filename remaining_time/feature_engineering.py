@@ -75,4 +75,3 @@ def scale_numeric_features(train_log, val_log, test_log, num_cols):
     val_log[num_cols] = sscaler.transform(val_log[num_cols])
     test_log[num_cols] = sscaler.transform(test_log[num_cols])
     return train_log, val_log, test_log
-
