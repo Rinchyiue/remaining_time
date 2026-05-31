@@ -10,3 +10,5 @@ PROCESSED_DIR = os.path.join(PROJECT_ROOT, "data", "processed")
 XES_FILE_PATH = os.path.join(RAW_DIR, "BPI_Challenge_2013_incidents.xes.gz")
 REQUIRED_COLUMNS = ["case:concept:name", "concept:name", "time:timestamp"]
 TARGET_COLUMN = "remaining_time"
+COLS_ENCODE = ["concept:name", "static_impact", "static_product", "static_organization involved"]
+NUM_COLS_SCALE = ["event_count", "elapsed_time", "activity_count"]

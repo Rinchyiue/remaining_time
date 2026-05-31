@@ -40,3 +40,13 @@ def sort_cases_by_timestamp(log, case_id_col, timestamp_col):
     log.sort_values([case_id_col, timestamp_col], ascending=True, inplace=True)
     print("Cases sorted successfully.")
     return log
+
+def filter_completed_cases(log, valid_end_activities=["Completed"]):
+    """
+    Filters the event log to keep only cases that successfully finished.
+    :param log: pandas.DataFrame with the log
+    :param valid_end_activities: list of valid end activities
+    :return: pandas.DataFrame with the filtered log
+    """
+    print(f"Filtering for completed cases ending with {valid_end_activities}...")
+    return pm4py.filter_end_activities(log, valid_end_activities)
