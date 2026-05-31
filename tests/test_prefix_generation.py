@@ -4,6 +4,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[1] / "remaining_time"))
 
 import pandas as pd
+import pytest
 from prefix_extractor import compute_remaining_time, filter_short_prefixes
 from config import TARGET_COLUMN
 
@@ -20,7 +21,7 @@ def test_compute_remaining_time():
     result = compute_remaining_time(df, "case_id", "timestamp")
 
     assert TARGET_COLUMN in result.columns
-    assert result.loc[0, TARGET_COLUMN] == 600
+    assert result.loc[0, TARGET_COLUMN] == pytest.approx(1 / 6)
     assert result.loc[1, TARGET_COLUMN] == 0
 
 
