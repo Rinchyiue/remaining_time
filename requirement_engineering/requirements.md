@@ -463,9 +463,8 @@ Important is that the updates should always stay in alignment with the Trello Ka
 ## Matrix explanation
 In total, there will be 5 matrices, which consists one for general view, and each of the rest four for a group of requirements. 
 
-As for the columns, we select "Requirement ID", "Analysis", "Design", "Implementation", "Documentation", "Test", "Evaluation", "Review", and "Deliverable", which roughly simulates the develop ment process for a single  
-requirement with specification in taking "Documentation" out from "Implementation" and "Evaluation" out from "Test". The reason for this seperation is to emphasize explainability in this project which can be a weakness  
-of students. 
+As for the columns, we select "Requirement ID", "Analysis", "Design", "Implementation", "Documentation", "Test", "Evaluation", "Review", and "Deliverable", which roughly simulates the development process for a single requirement with specification in taking "Documentation" out from "Implementation" and "Evaluation" out from "Test". 
+The reason for this seperation is to emphasize explainability in this project which can be a weakness of students. 
 
 As for the rows, in the matrix for general view, each of them stands for a submatric; in other submatrices, each of them corresponds to a requirement.  
 
@@ -475,7 +474,7 @@ It is also worth mentioning that the constraints should be followed throughout t
 ### Matrix 0: General View
 |Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
 |---|---|---|---|---|---|---|---|---|
-|Data and Preprocessing|---|---|---|---|---|---|---|---|
+|Data and Preprocessing|x|x|x|x|x|x|x|x|
 |Modelling and Evaluation|---|---|---|---|---|---|---|---|
 |Infrastructure and Tooling|---|---|---|---|---|---|---|---|
 |Reporting and Explainablity|---|---|---|---|---|---|---|---|
@@ -483,22 +482,22 @@ It is also worth mentioning that the constraints should be followed throughout t
 ### Matrix 1: Data and Preprocessing
 |Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
 |---|---|---|---|---|---|---|---|---|
-|REQ-01|x|x|x|x|---|---|---|---|
-|REQ-02|x|x|x|x|---|---|---|---|
-|REQ-03|---|---|---|---|---|---|---|---|
-|REQ-04|---|---|---|---|---|---|---|---|
-|REQ-05|---|---|---|---|---|---|---|---|
-|REQ-06|---|---|---|---|---|---|---|---|
-|REQ-07|---|---|---|---|---|---|---|---|
-|REQ-08|---|---|---|---|---|---|---|---|
-|REQ-09|---|---|---|---|---|---|---|---|
-|REQ-10|---|---|---|---|---|---|---|---|
-|REQ-11|---|---|---|---|---|---|---|---|
+|REQ-01|x|x|x|x|x|x|x|x|
+|REQ-02|x|x|x|x|x|x|x|x|
+|REQ-03|x|x|x|x|x|x|x|x|
+|REQ-04|x|x|x|x|x|x|x|x|
+|REQ-05|x|x|x|x|x|x|x|x|
+|REQ-06|x|x|x|x|x|x|x|x|
+|REQ-07|x|x|x|x|x|x|x|x|
+|REQ-08|x|x|x|x|x|x|x|x|
+|REQ-09|x|x|x|x|x|x|x|x|
+|REQ-10|x|x|x|x|x|x|x|x|
+|REQ-11|x|x|x|x|x|x|x|x|
 
 ### Matrix 2: Modelling and Evaluation  
 |Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
 |---|---|---|---|---|---|---|---|---|
-|REQ-12|---|---|---|---|---|---|---|---|
+|REQ-12|x|x|x|x|x|x|x|x|
 |REQ-13|x|x|x|x|---|---|---|---|
 |REQ-14|x|x|x|x|---|---|---|---|
 |REQ-15|x|x|x|x|---|---|---|---|
@@ -527,7 +526,7 @@ It is also worth mentioning that the constraints should be followed throughout t
 |REQ-33|---|---|---|---|---|---|---|---|
 |REQ-34|---|---|---|---|---|---|---|---|
 |REQ-35|---|---|---|---|---|---|---|---|
-|REQ-36|x|x|x|x|---|---|---|---|
+|REQ-36|x|x|x|x|x|x|x|x|
 
 # Reference
 [1]: Rama-Maneiro, Efrén, Juan C. Vidal, and Manuel Lama. "Deep learning for predictive business process monitoring: Review and benchmark." IEEE Transactions on Services Computing 16.1 (2021): 739-756.
