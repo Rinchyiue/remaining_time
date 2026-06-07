@@ -5,6 +5,7 @@ A module for feature engineering, including encoding from prefixes to feature ve
 import pandas as pd
 
 from sklearn.preprocessing import StandardScaler
+from joblib import dump
 
 def extract_static_case_attr(log, case_id_col, static_columns):
     """
@@ -74,4 +75,6 @@ def scale_numeric_features(train_log, val_log, test_log, num_cols):
     train_log[num_cols] = sscaler.fit_transform(train_log[num_cols])
     val_log[num_cols] = sscaler.transform(val_log[num_cols])
     test_log[num_cols] = sscaler.transform(test_log[num_cols])
+    dump(sscaler, '../sscaler.pkl')
+    print(" --- Successfully scaled numeric features and saved scaler.pkl --- ")
     return train_log, val_log, test_log
