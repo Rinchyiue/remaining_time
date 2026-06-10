@@ -122,12 +122,12 @@ To run all tests:
 
 ```bash
 pytest
-
+```
 To run a specific test file:
 
 ```bash
 pytest tests/test_model_evaluation.py
-
+```
 # Orga  
 &nbsp;&nbsp;- regular weekly meeting:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sun. 19:30 - 20:30
