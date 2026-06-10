@@ -1,10 +1,9 @@
 from checker import df_type_check, column_inclusion_check
 from config import REQUIRED_COLUMNS, COLS_ENCODE, NUM_COLS_SCALE
-from data_loader import load_data, validate_columns, sort_cases_by_timestamp, filter_completed_cases
+from data_loader import validate_columns, sort_cases_by_timestamp, filter_completed_cases
 from prefix_extractor import compute_remaining_time, filter_short_prefixes
 from data_splitter import time_based_split
-from sklearn.preprocessing import FunctionTransformer, StandardScaler, OneHotEncoder
-from sklearn.compose import ColumnTransformer
+import pm4py
 from feature_engineering import extract_static_case_attr, extract_aggr_dynamic_features, extract_temporal_features, encode_categorical_features, scale_numeric_features
 
 # @para log:
@@ -29,7 +28,9 @@ def preprocess_data():
     print("--- Starting pipeline for remaining time ---")
 
     # 1. Loading the data
-    log = load_data()
+    print("Loading log...")
+    log = pm4py.read_xes("training_data/BPI_Challenge_2013_incidents.xes.gz")
+    print("Log loaded successfully.")
 
     # 2. Validating the existence of the essential columns within the data
     validate_columns(log, REQUIRED_COLUMNS)
