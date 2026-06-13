@@ -14,7 +14,7 @@ feature_engineering.py: a module for feature engineering, including encoding fro
 
 linear_regression.py: functions and the pipeline to train the linear regression model.
 
-main.py: a module for the pipeline of the system.
+main.py: a module for the preprocessing pipeline of the system.
 
 model_evaluation.py: functions to evaluate the models, as well as compare and update the results. 
 
