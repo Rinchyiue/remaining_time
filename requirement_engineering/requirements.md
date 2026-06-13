@@ -475,9 +475,9 @@ It is also worth mentioning that the constraints should be followed throughout t
 |Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
 |---|---|---|---|---|---|---|---|---|
 |Data and Preprocessing|x|x|x|x|x|x|x|x|
-|Modelling and Evaluation|---|---|---|---|---|---|---|---|
-|Infrastructure and Tooling|---|---|---|---|---|---|---|---|
-|Reporting and Explainablity|---|---|---|---|---|---|---|---|
+|Modelling and Evaluation|x|x|x|x|x|x|x|x|
+|Infrastructure and Tooling|x|x|x|x|x|x|x|x|
+|Reporting and Explainablity|x|x|x|x|x|x|x|x|
 
 ### Matrix 1: Data and Preprocessing
 |Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
@@ -498,34 +498,34 @@ It is also worth mentioning that the constraints should be followed throughout t
 |Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
 |---|---|---|---|---|---|---|---|---|
 |REQ-12|x|x|x|x|x|x|x|x|
-|REQ-13|x|x|x|x|---|---|---|---|
-|REQ-14|x|x|x|x|---|---|---|---|
-|REQ-15|x|x|x|x|---|---|---|---|
-|REQ-16|x|x|x|x|---|---|---|---|
-|REQ-17|x|x|x|x|---|---|---|---|
-|REQ-18|---|---|---|---|---|---|---|---|
-|REQ-19|x|x|x|x|---|---|---|---|
-|REQ-20|---|---|---|---|---|---|---|---|
-|REQ-21|---|---|---|---|---|---|---|---|
-|REQ-22|x|x|x|x|---|---|---|---|
-|REQ-23|---|---|---|---|---|---|---|---|
+|REQ-13|x|x|x|x|x|x|x|x|
+|REQ-14|x|x|x|x|x|x|x|x|
+|REQ-15|x|x|x|x|x|x|x|x|
+|REQ-16|x|x|x|x|x|x|x|x|
+|REQ-17|x|x|x|x|x|x|x|x|
+|REQ-18|x|x|x|x|x|x|x|x|
+|REQ-19|x|x|x|x|x|x|x|x|
+|REQ-20|x|x|x|x|x|x|x|x|
+|REQ-21|x|x|x|x|x|x|x|x|
+|REQ-22|x|x|x|x|x|x|x|x|
+|REQ-23|x|x|x|x|x|x|x|x|
 
 ### Matrix 3: Infrastructure and Tooling  
 |Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
 |---|---|---|---|---|---|---|---|---|
-|REQ-27|---|---|---|---|---|---|---|---|
+|REQ-27|x|x|x|x|x|x|x|x|
 
 ### Matrix 4: Reporting and Explainability
 |Requirement ID | Analysis | Design | Implementation | Documentation | Test | Evaluation | Review | Deliverable |
 |---|---|---|---|---|---|---|---|---|
-|REQ-28|---|---|---|---|---|---|---|---|
-|REQ-29|---|---|---|---|---|---|---|---|
-|REQ-30|---|---|---|---|---|---|---|---|
-|REQ-31|x|x|x|x|---|---|---|---|
-|REQ-32|---|---|---|---|---|---|---|---|
-|REQ-33|---|---|---|---|---|---|---|---|
-|REQ-34|---|---|---|---|---|---|---|---|
-|REQ-35|---|---|---|---|---|---|---|---|
+|REQ-28|x|x|x|x|x|x|x|x|
+|REQ-29|x|x|x|x|x|x|x|x|
+|REQ-30|x|x|x|x|x|x|x|x|
+|REQ-31|x|x|x|x|x|x|x|x|
+|REQ-32|x|x|x|x|x|x|x|x|
+|REQ-33|x|x|x|x|x|x|x|x|
+|REQ-34|x|x|x|x|x|x|x|x|
+|REQ-35|x|x|x|x|x|x|x|x|
 |REQ-36|x|x|x|x|x|x|x|x|
 
 # Reference
