@@ -133,6 +133,44 @@ pytest tests/test_model_evaluation.py
 
 Please refer to the notebooks.
 
+## Architecture
+
+In the main directory, you can find:
+
+notebooks: a directory which stores jupyter-notebooks that provides information on how to reproduce the training and testing process, along with a notebook on how to perform our model on new data. 
+
+outputs: a directory which stores two plots regarding the comparison between baseline model and our two more advanced models, together with a short analysis file.
+
+remaining_time: one of the most important directories in our project, which stores program files that assist in preprocessing data, training model and evaluating model. For more information, please refer to the directory's archtecture file.
+
+requirement_engineering: a directory which contains the bpmn-models regrading the workfloe of this project and a markdown file which analyses the requirements in this project and discusses their necessity and realisation in this project.
+
+reviews: a directory where you can find our milestone 0 files about the project setup and some weekly meeting files.
+
+tests: one of the most important directories in our project, which contains program files supporting automatic unit tests on the program files in the remaining_time directory.
+
+training_data: a directory which contains the used data set for training the model; also used in the reproduction phase.
+
+README.md: this file; explains the general information about the team, methodology, instructions on setup, architecture and organizational issues.
+
+model_metrics.csv: a file of evaluation results of the trained models, based on prefix length, MAE, RMSE, MedAE, and R^2 Score.
+
+model_scores.csv: a file conatining more details on statistical comparison of the trained models against the baseline model, as well as the parameters selected for each model.
+
+reg_ols.pkl: a file which stores our trained linear regression model.
+
+requirements.txt: a file which lists all required/used sources/libraries in this project.
+
+ridge.pkl: a file which stores our trained ridge regression model.
+
+sscaler.pkl: a file which stores a the standard scaler used in this project.
+
+# Results
+
+As can also be seen in outputs/plots, the baseline model performs the worst. However, the trained linear regression model and ridge regression model perform similarly, while according to our super score defined in requirements_engineering.md, the ridge regression model performs slightly better than the linear regression model. 
+
+Nevertheless, the linear regression model might also perform better on new data due to the limitation of our used data set for training. Therefore, it is recommanded to try both models once and pick your more preferred result.
+
 # Orga  
 &nbsp;&nbsp;- regular weekly meeting:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sun. 19:30 - 20:30
