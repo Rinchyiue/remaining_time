@@ -169,6 +169,8 @@ sscaler.pkl: a file which stores a the standard scaler used in this project.
 
 As can also be seen in outputs/plots, the baseline model performs the worst. However, the trained linear regression model and ridge regression model perform similarly, while according to our super score defined in requirements_engineering.md, the ridge regression model performs slightly better than the linear regression model. 
 
+Regarding the definition of "success" stated in the same markdown file: unfortunately, none of our models satisifies this standard.
+
 Nevertheless, the linear regression model might also perform better on new data due to the limitation of our used data set for training. Therefore, it is recommanded to try both models once and pick your more preferred result.
 
 # Orga  
