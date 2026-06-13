@@ -1,5 +1,5 @@
 """
-A module for the pipeline of the system.
+A module for the preprocessing pipeline of the system.
 """
 import pm4py
 import pandas as pd
