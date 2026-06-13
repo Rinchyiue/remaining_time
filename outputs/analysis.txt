@@ -1,0 +1,25 @@
+This file serves a short anaysis for the plots.
+
+1. mae_vs_prefix_length.png:
+
+from this plot, we can detect that the baseline model performs constantly regarding the MAE and prefix length, i.e. the MAE value always stays slightly above 400.
+
+Moreover, we can see that, regarding MAE, the linear regression model (ols) and the ridge regression model (ridge) perform relatively similar, while the ridge regression model has a lower MAE value in general.
+
+It is also remarkable that there is a sudden peak when the prefix length reaches around 24, which is nearly three to four times (>800 / ~800) of the regular cases (100 ~ 300). More importantly, this point is over the
+MAE value of the baseline model. There might be a decisive point in the process, which has not been detected by our regression models.
+
+
+2. rmse_vs_prefix_length.png:
+
+from this plot, we can draw the similar conclusion:
+
+The baseline model performs constantly.
+
+The linear regression model and the ridge regression model still perform similarly, with the ridge regression model having a slightlt better performance.
+
+However, we can observe more case overranging the baseline model from the linear regression model and the ridge regression model, like the cases where the prefix lengths are: 2, 7, 12, 14, 19, 20, and 24.
+This is because the RMSE is more sensitive to outliners. Nevertheless, we can also support our findings from mae_vs_prefix_length.png that the prefix length 24 must be a big "jump" in the process, which has not been detected
+by our models. Moreover, 12 is also concerning.
+
+In general, MAE and RMSE values stay relatively stable and constant for both linear and ridge regression models, which is also desirably lower than those of the baseline model. For more detailed statistics, please refer to model_metrics.csv.
