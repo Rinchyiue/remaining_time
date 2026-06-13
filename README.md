@@ -157,17 +157,17 @@ model_metrics.csv: a file of evaluation results of the trained models, based on 
 
 model_scores.csv: a file conatining more details on statistical comparison of the trained models against the baseline model, as well as the parameters selected for each model.
 
-reg_ols.pkl: a file which stores our trained linear regression model.
+reg_ols.pkl: a file which contains our trained linear regression model.
 
 requirements.txt: a file which lists all required/used sources/libraries in this project.
 
-ridge.pkl: a file which stores our trained ridge regression model.
+ridge.pkl: a file which contains our trained ridge regression model.
 
-sscaler.pkl: a file which stores a the standard scaler used in this project.
+sscaler.pkl: a file which contains the standard scaler used in this project.
 
 # Results
 
-As can also be seen in outputs/plots, the baseline model performs the worst. However, the trained linear regression model and ridge regression model perform similarly, while according to our super score defined in requirements_engineering.md, the ridge regression model performs slightly better than the linear regression model. 
+As shown in the outputs/plots, the baseline model performs the worst. However, the trained linear regression model and ridge regression model perform similarly, while according to our super score defined in requirements_engineering.md, the ridge regression model performs slightly better than the linear regression model. 
 
 Regarding the definition of "success" stated in the same markdown file: unfortunately, none of our models satisifies this standard.
 
