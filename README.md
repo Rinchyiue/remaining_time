@@ -8,18 +8,6 @@ Linas   Butkus
 Sarp    Aydoslu  
 Qifan   Wu      
 
-# Current Roles  
-Sarp Aydoslu&nbsp;&nbsp;-  Evaluation & Visualization Lead, Quality & Tooling (Tests, CI)  
-Linas Butkus&nbsp;-  Data & Preprocessing Lead, Modelling Lead (Shared)  
-Qifan Wu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Project Coordinator, Technical Lead, Experimentation Lead  
-  
-PS: All of us are responsible for the documentation and reporting.  
-
-# Peer Review  
-Linas Butkus&nbsp;&nbsp;-> Sarp Aydoslu  
-Sarp Aydoslu&nbsp;-> Qifan Wu  
-Qifan Wu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> Linas Butkus  
-
 # Approaches  
 Trello: To manage tasks and track project progress, we use Trello with a Kanban-style.
 Tasks are organized into categories such as “Backlog”, “In Progress”, “In Review” and
@@ -47,14 +35,7 @@ CSV files. In this project, it allows us to organize the data into a tabular for
 efficient operations such as filtering and aggregation, and compute features required for the
 prediction task. These include metrics like elapsed time, number of events in a prefix, and
 activity-related statistics. Overall, pandas plays a key role in preparing the final dataset
-that is used as input for the machine learning models.  
-
-ProM: ProM can be used to validate the quality of event logs by checking important
-attributes such as case ID, activity and timestamp. Although it is not part of the main
-pipeline, ProM can support exploratory analysis and future project extensions.
-Disco: Disco is a process mining tool used for analysis of event log data. In this project,
-it can be used to better understand the structure and behavior of the event log, which can
-support feature engineering and data validation steps.  
+that is used as input for the machine learning models.   
 
 Scikit-Learn: We use scikit-learn to implement and evaluate machine learning models
 for predicting remaining time. It provides a consistent interface for training regression
