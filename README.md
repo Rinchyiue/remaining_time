@@ -1,14 +1,14 @@
 # remaining_time
 
-# Intro
+## Intro
 A predictive process mining solution that estimates the remaining time of running incidents from event logs. The main value is providing IT helpdesks with early warnings for long-running tickets, enabling proactive resource management and better service delivery.
 
-# The Team  
+## The Team  
 Linas   Butkus  
 Sarp    Aydoslu  
 Qifan   Wu      
 
-# Approaches  
+## Approaches  
 Trello: To manage tasks and track project progress, we use Trello with a Kanban-style.
 Tasks are organized into categories such as “Backlog”, “In Progress”, “In Review” and
 “Done”. This helps the team coordinate work, assign responsibilities, and monitor deadlines
@@ -51,7 +51,7 @@ distributions. And they allow for performance comparisons across different prefi
 These visualisations help us to see how well the models perform and spot any patterns or
 weaknesses in the predictions.  
 
-# Setup Instruction
+## Setup Instruction
 For Python 3.10 or newer.
 
 ### To create a virtual environment
@@ -77,12 +77,12 @@ source venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
-# Dataset
+## Dataset
 The dataset used is the "BPI Challenge 2013: Incident Management Log", which consists of 7.556 incidents and 2.306 closed problems. These stem from Volvo IT Belgium's incident and problem management system and directly concern IT incident handling.
 
 The incident process strives to restore normale service when an incident occurs. It entails the entire lifecycle of a case, including escalation across support lines. For this purpose the dataset also records priority-related attributes such as impact and urgency.
 
-## Setup & Download
+### Setup & Download
 To download and place the dataset, a data setup script is provided.
 1. Open terminal.
 2. Navigate to the root directory of the repository and then to directory remaining_time.
@@ -95,7 +95,7 @@ To download and place the dataset, a data setup script is provided.
    python3 data_setup.py
    ```
 
-# Testing
+## Testing
 
 The project includes an automated test suite implemented with pytest.
 
@@ -110,11 +110,11 @@ To run a specific test file:
 pytest tests/test_model_evaluation.py
 ```
 
-# Prototype and Reproduction
+## Prototype and Reproduction
 
 Please refer to the notebooks.
 
-# Architecture
+## Architecture
 
 In the main directory, you can find:
 
@@ -136,7 +136,7 @@ README.md: this file; explains the general information about the team, methodolo
 
 requirements.txt: a file which lists all required/used sources/libraries in this project.
 
-# Results
+## Results
 
 As shown in the outputs/plots, the baseline model performs the worst. However, the trained linear regression model and ridge regression model perform similarly, while according to our super score defined in requirements_engineering.md, the ridge regression model performs slightly better than the linear regression model. 
 
