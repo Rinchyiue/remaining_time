@@ -95,7 +95,7 @@ To download and place the dataset, a data setup script is provided.
    python3 data_setup.py
    ```
 
-## Testing
+# Testing
 
 The project includes an automated test suite implemented with pytest.
 
@@ -110,41 +110,31 @@ To run a specific test file:
 pytest tests/test_model_evaluation.py
 ```
 
-## Prototype and Reproduction
+# Prototype and Reproduction
 
 Please refer to the notebooks.
 
-## Architecture
+# Architecture
 
 In the main directory, you can find:
 
+artifacts: a directory which contains our trained models, metrics and other generated outputs.
+
+figures: a directory which stores two plots regarding the comparison between baseline model and our two more advanced models, together with a short analysis file.
+
 notebooks: a directory which stores jupyter-notebooks that provides information on how to reproduce the training and testing process, along with a notebook on how to perform our model on new data. 
-
-outputs: a directory which stores two plots regarding the comparison between baseline model and our two more advanced models, together with a short analysis file.
-
-remaining_time: one of the most important directories in our project, which stores program files that assist in preprocessing data, training model and evaluating model. For more information, please refer to the directory's archtecture file.
 
 requirement_engineering: a directory which contains the bpmn-models regrading the workfloe of this project and a markdown file which analyses the requirements in this project and discusses their necessity and realisation in this project.
 
-reviews: a directory where you can find our milestone 0 files about the project setup and some weekly meeting files.
+src: one of the most important directories in our project, which stores program files that assist in preprocessing data, training model and evaluating model. For more information, please refer to the directory's archtecture file.
 
 tests: one of the most important directories in our project, which contains program files supporting automatic unit tests on the program files in the remaining_time directory.
 
-training_data: a directory which contains the used data set for training the model; also used in the reproduction phase.
+ARCHITECTURE.md: a file which contains general information on all of our modules inside of the src directory.
 
 README.md: this file; explains the general information about the team, methodology, instructions on setup, architecture and organizational issues.
 
-model_metrics.csv: a file of evaluation results of the trained models, based on prefix length, MAE, RMSE, MedAE, and R^2 Score.
-
-model_scores.csv: a file conatining more details on statistical comparison of the trained models against the baseline model, as well as the parameters selected for each model.
-
-reg_ols.pkl: a file which contains our trained linear regression model.
-
 requirements.txt: a file which lists all required/used sources/libraries in this project.
-
-ridge.pkl: a file which contains our trained ridge regression model.
-
-sscaler.pkl: a file which contains the standard scaler used in this project.
 
 # Results
 
