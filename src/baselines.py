@@ -4,6 +4,7 @@ A module containing baseline models to benchmark more advanced models.
 
 import numpy as np
 import pandas as pd
+from pathlib import Path
 from model_evaluation import myScore
 from pipeline_helper import get_log_with_length_index, get_variants
 from checker import df_type_check, column_inclusion_check
@@ -27,6 +28,7 @@ def mean_predictor(train_log, target_col="remaining_time"):
 # functionality: initialize model_metrics.csv and model_scores.csv with baseline model data
 def save_baseline(test_log, mean_remaining_time):
     df_type_check(test_log)
+    artifacts_dir = Path(__file__).resolve().parents[1] / "artifacts"
     data_model_scores = {
         'name':['baseline'],
         'best':['Y'],
@@ -34,8 +36,8 @@ def save_baseline(test_log, mean_remaining_time):
         'details':['This model predicts every input simply as the mean value of time of the training data. ']
     }
     df1 = pd.DataFrame(data_model_scores)
-    df1.to_csv("model_scores.csv", index=False)
-    print(" --- model_scores.csv successfully created --- ")
+    df1.to_csv(artifacts_dir / "model_scores.csv", index=False)
+    print(f" --- {artifacts_dir.name}/model_scores.csv successfully created --- ")
 
     df2 = pd.DataFrame(columns=['name', 'prefix_length', 'MAE', 'RMSE', 'MedAE', 'R2'])
     res_list = []
@@ -53,5 +55,5 @@ def save_baseline(test_log, mean_remaining_time):
         }
         res_list.append(row)
     df2 = pd.DataFrame(res_list)
-    df2.to_csv("model_metrics.csv", index=False)
-    print(" --- model_metrics.csv successfully created --- ")
+    df2.to_csv(artifacts_dir / "model_metrics.csv", index=False)
+    print(f" --- {artifacts_dir.name}/model_metrics.csv successfully created --- ")

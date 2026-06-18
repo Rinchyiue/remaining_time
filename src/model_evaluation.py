@@ -1,6 +1,7 @@
 from sklearn.metrics import (mean_absolute_error, root_mean_squared_error, median_absolute_error, r2_score)
 import pandas as pd
 import score_management
+from pathlib import Path
 from pipeline_helper import get_variants, get_log_with_length_index, get_length_percentage
 from checker import df_type_check
 from pipeline_helper import numeric_split
@@ -187,7 +188,10 @@ def strict_compare(df1, df2):
 def evaluate_model(model, model_name, test_data, result_string):
     df_type_check(test_data)
     print(" --- start evaluating model --- ")
-    df = pd.read_csv("model_metrics.csv")
+    artifacts_dir = Path(__file__).resolve().parents[1] / "artifacts"
+    metrics_path = artifacts_dir / "model_metrics.csv"
+    scores_path = artifacts_dir / "model_scores.csv"
+    df = pd.read_csv(metrics_path)
     new_rows = []
     variants = get_variants(test_data)
     
@@ -208,11 +212,11 @@ def evaluate_model(model, model_name, test_data, result_string):
             "R2": score[3]
         })
     df = score_management.add_list_of_lines(df, new_rows)
-    df.to_csv("model_metrics.csv", index=False)
+    df.to_csv(metrics_path, index=False)
     print(" --- model metrics successfully stored --- ")
 
-    df1 = pd.read_csv("model_metrics.csv")
-    df2 = pd.read_csv("model_scores.csv")
+    df1 = pd.read_csv(metrics_path)
+    df2 = pd.read_csv(scores_path)
     abs_su = abs_super(df1, model_name, test_data)                     # the absolute super value calculated against baseline
     rel_su = rel_super(df1, df2, model_name, test_data)                     # a list of tuples of compared current 'best' model and relative super value calculated
     update_info = loose_compare(model_name, rel_su)              # the update/setting info
@@ -220,5 +224,5 @@ def evaluate_model(model, model_name, test_data, result_string):
     print(" --- loose compare done --- ")
 
     df2 = score_management.update_and_set(df2, update_info, abs_su, result_string)
-    df2.to_csv("model_scores.csv", index=False)
+    df2.to_csv(scores_path, index=False)
     print(" --- model score successfully stored and updated --- ")

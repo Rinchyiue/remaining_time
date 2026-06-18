@@ -8,6 +8,7 @@ from sklearn.linear_model import Ridge
 from sklearn.model_selection import GridSearchCV, PredefinedSplit
 from sklearn.metrics import make_scorer
 from joblib import dump
+from pathlib import Path
 from pipeline_helper import preprocess_data, numeric_split
 from model_evaluation import myScore, validScore, evaluate_model
 
@@ -68,5 +69,6 @@ print(" --- evaluation done --- ")
 
 # part_6: save model
 print(" --- saving model --- ")
-dump(cur_model, 'ridge.pkl')
-print(" --- model saved --- ")
+artifacts_dir = Path(__file__).resolve().parents[1] / "artifacts"
+dump(cur_model, artifacts_dir / 'ridge.pkl')
+print(f" --- model saved safely to {artifacts_dir.name}/ridge.pkl --- ")

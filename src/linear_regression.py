@@ -5,6 +5,7 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.pipeline import make_pipeline
 from joblib import dump
+from pathlib import Path
 from pipeline_helper import preprocess_data, numeric_split
 from model_evaluation import evaluate_model
 
@@ -35,5 +36,6 @@ print(" --- model evaluation done --- ")
 
 # part_4: save model
 print(" --- start saving model --- ")
-dump(pipe, 'reg_ols.pkl')
-print(" --- model saved --- ")
+artifacts_dir = Path(__file__).resolve().parents[1] / "artifacts"
+dump(pipe, artifacts_dir / 'reg_ols.pkl')
+print(f" --- model saved safely to {artifacts_dir.name}/reg_ols.pkl --- ")
