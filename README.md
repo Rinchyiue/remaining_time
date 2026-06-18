@@ -153,8 +153,3 @@ As shown in the outputs/plots, the baseline model performs the worst. However, t
 Regarding the definition of "success" stated in the same markdown file: both of our more advanced models satisfy this standard, and we also expect them to predict relatively accurate remaining times on real-life datasets.
 
 Nevertheless, the linear regression model might also perform better on new data due to the limitation of our used data set for training. Therefore, it is recommanded to try both models once and pick your more preferred result.
-
-# Orga  
-&nbsp;&nbsp;- regular weekly meeting:  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sun. 19:30 - 20:30
-
