@@ -78,7 +78,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 ## Dataset
-The dataset used is the "BPI Challenge 2013: Incident Management Log", which consists of 7.556 incidents and 2.306 closed problems. These stem from Volvo IT Belgium's incident and problem management system and directly concern IT incident handling.
+The dataset used is the "BPI Challenge 2013: Incident Management Log", which consists of 7.554 cases and 65533 events. These stem from Volvo IT Belgium's incident and problem management system and directly concern IT incident handling.
 
 The incident process strives to restore normale service when an incident occurs. It entails the entire lifecycle of a case, including escalation across support lines. For this purpose the dataset also records priority-related attributes such as impact and urgency.
 
