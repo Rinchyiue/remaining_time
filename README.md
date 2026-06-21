@@ -94,6 +94,18 @@ To download and place the dataset, a data setup script is provided.
    # On macOS/Linux (without a virtual environment):
    python3 data_setup.py
    ```
+## End-to-end Usage
+To easily use our product, please refer to ../src and find main.py. You can simply run this python file and get the models trained with some useful plots directly presented after the training and saving process is done. 
+Please follow the last steps form "Setup & Download" and perform the following steps:
+1. Run the main.py:
+   ```bash
+   # On Windows (or inside an active virtual environment):
+   python main.py
+
+   # On macOS/Linux (without a virtual environment):
+   python3 main.py
+   ```
+Since the complexity of our code is nearly in $\mathcal{O}(n^3)$, please be patient and wait for a while before the procedure terminates.
 
 ## Testing
 
