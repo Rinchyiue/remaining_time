@@ -12,3 +12,5 @@ REQUIRED_COLUMNS = ["case:concept:name", "concept:name", "time:timestamp"]
 TARGET_COLUMN = "remaining_time"
 COLS_ENCODE = ["concept:name", "static_impact", "static_product", "static_organization involved"]
 NUM_COLS_SCALE = ["event_count", "elapsed_time", "activity_count"]
+ARTIFACTS_DIR = os.path.join(PROJECT_ROOT, "artifacts")
+FIGURES_DIR = os.path.join(PROJECT_ROOT, "figures")
